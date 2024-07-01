@@ -80,35 +80,34 @@
                     <div class="row">
                         @forelse ($ratings as $rating)
                             <div class="col-12">
-                                <div class="d-flex align-items-start justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <span class="position-relative">
-                                            <img src="{{ asset($rating->users->showAvatar()) }}" alt="user1"
-                                                width="48" height="48" class="rounded-circle" />
-                                        </span>
-                                        <div class="ms-3 d-inline-block w-75">
-                                            {{-- Stars Kuning --}}
-                                            @for ($i = 1; $i <= $rating->rating; $i++)
-                                                <label class="star-rating" style="color: gold">
-                                                    <i class="fas fa-star"></i>
-                                                </label>
-                                            @endfor
-                                            {{-- Stars Kuning --}}
-                                            {{-- Stars Abu --}}
-                                            @for ($i = 1; $i <= 5 - $rating->rating; $i++)
-                                                <label class="star-rating" style="color: gray">
-                                                    <i class="fas fa-star"></i>
-                                                </label>
-                                            @endfor
-                                            {{-- Stars Abu --}}
-                                            <h6 class="mb-1 fw-semibold chat-title">
-                                                {{ $rating->users->name }}
-                                            </h6>
-                                            <span
-                                                class="fs-3 text-truncate text-body-color">{{ $rating->comment }}</span>
-                                        </div>
+                                <div class="d-flex align-items-center">
+                                    <span class="position-relative">
+                                        <img src="{{ asset($rating->users->showAvatar()) }}" alt="user1"
+                                            width="48" height="48" class="rounded-circle" />
+                                    </span>
+                                    <div class="ms-3 d-inline-block w-75">
+                                        {{-- Stars Kuning --}}
+                                        @for ($i = 1; $i <= $rating->rating; $i++)
+                                            <label class="star-rating" style="color: gold">
+                                                <i class="fas fa-star"></i>
+                                            </label>
+                                        @endfor
+                                        {{-- Stars Kuning --}}
+                                        {{-- Stars Abu --}}
+                                        @for ($i = 1; $i <= 5 - $rating->rating; $i++)
+                                            <label class="star-rating" style="color: gray">
+                                                <i class="fas fa-star"></i>
+                                            </label>
+                                        @endfor
+                                        {{-- Stars Abu --}}
+                                        <h6 class="mb-1 fw-semibold chat-title">
+                                            {{ $rating->users->name }}
+                                        </h6>
+                                        <span class="fs-3 text-truncate text-body-color">{{ $rating->comment }}</span>
                                     </div>
-                                    <p class="fs-2 mb-0 text-muted">
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <p class="fs-2 mb-0 text-muted ">
                                         @if ($rating->updated_at !== $rating->created_at)
                                             (Di edit)
                                             {{ $rating->updated_at->diffForHumans() }}
