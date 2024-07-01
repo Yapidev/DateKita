@@ -67,9 +67,6 @@
         </div>
     </div>
 
-    <!--  Mobilenavbar -->
-    @livewire('components.mobileNavbar')
-
     <!--  Import Js Files -->
     <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>

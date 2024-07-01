@@ -23,12 +23,6 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="javascript:void(0)"
-                        class="nav-link d-flex d-lg-none align-items-center justify-content-center" type="button"
-                        data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar"
-                        aria-controls="offcanvasWithBothOptions">
-                        <i class="ti ti-align-justified fs-7"></i>
-                    </a>
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
                         <li class="nav-item dropdown">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
@@ -36,7 +30,7 @@
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                            <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
+                            <div class="dropdown-menu content-dd dropdown-menu-end"
                                 aria-labelledby="drop2">
                                 <div class="d-flex align-items-center justify-content-between py-3 px-7">
                                     <h5 class="mb-0 fs-5 fw-semibold">Notifikasi</h5>
@@ -83,7 +77,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
+                            <div class="dropdown-menu content-dd dropdown-menu-end"
                                 aria-labelledby="drop1">
                                 <div class="profile-dropdown position-relative" data-simplebar>
                                     <div class="py-3 px-7 pb-0">
