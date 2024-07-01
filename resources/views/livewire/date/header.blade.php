@@ -10,7 +10,7 @@
                         <span class="fw-semibold text-dark">Total Pengeluaran:</span>
                         {{ $date->total_expenses }}
                     </p>
-                    <a href="{{ route('home') }}" class="btn btn-warning me-2 mb-2" wire:navigate>Kembali</a>
+                    <a href="{{ route('home') }}" class="btn btn-warning me-2 mb-2" wire:navigate><i class="ti ti-arrow-left"></i></a>
                     <button class="btn btn-primary mb-2" wire:click='addExpense' wire:loading.attr='disabled'>Tambah
                         Pengeluaran</button>
                 </div>
