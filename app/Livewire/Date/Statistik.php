@@ -52,8 +52,9 @@ class Statistik extends Component
         $minExpense = $expensesPerUser->min('total');
 
         return $expensesPerUser->map(function ($expense) use ($maxExpense, $minExpense) {
-            $color = 'text-warning'; // Default color for equal expenses
-            if ($expense['total'] == $maxExpense) {
+            if ($maxExpense == $minExpense) {
+                $color = 'text-warning';
+            } elseif ($expense['total'] == $maxExpense) {
                 $color = 'text-success';
             } elseif ($expense['total'] == $minExpense) {
                 $color = 'text-danger';

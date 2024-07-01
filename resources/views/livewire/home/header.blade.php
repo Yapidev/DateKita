@@ -8,7 +8,7 @@
                     <p class="mb-9">
                         Buat jadwal kencan sekarang!
                     </p>
-                    <button class="btn btn-primary" wire:click='addDate'>
+                    <button class="btn btn-primary" wire:click='addDate' wire:loading.delay.attr='disabled'>
                         Buat Jadwal
                     </button>
                 </div>
@@ -87,7 +87,7 @@
                             @if ($modal_title == 'Tambah Kencan') wire:click='storeDate'
                         @else
                         wire:click='updateDate({{ $date_id }})' @endif
-                            wire:loading.attr='disabled'>Simpan</button>
+                            wire:loading.delay.attr='disabled'>Simpan</button>
                     </div>
                 </div>
             </div>

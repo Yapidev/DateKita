@@ -11,7 +11,7 @@
                         {{ $date->total_expenses }}
                     </p>
                     <a href="{{ route('home') }}" class="btn btn-warning me-2 mb-2" wire:navigate>Kembali</a>
-                    <button class="btn btn-primary mb-2" wire:click='addExpense' wire:loading.attr='disabled'>Tambah
+                    <button class="btn btn-primary mb-2" wire:click='addExpense' wire:loading.delay.attr='disabled'>Tambah
                         Pengeluaran</button>
                 </div>
                 <div class="col-3">
@@ -115,7 +115,7 @@
                             wire:click='resetModal'>Batal</button>
                         <button id="btn-n-add" class="btn btn-primary"
                             @if ($modal_title == 'Tambah Pengeluaran') wire:click='storeExpense' @else wire:click='updateExpense({{ $expense_id }})' @endif
-                            wire:loading.attr='disabled'>Simpan</button>
+                            wire:loading.delay.attr='disabled'>Simpan</button>
                     </div>
                 </div>
             </div>

@@ -62,7 +62,7 @@
                     @enderror
                     {{-- Coment --}}
                     <div class="d-flex justify-content-end">
-                        <button wire:click="submitRating" class="btn btn-primary" wire:loading.attr='disabled'>Submit
+                        <button wire:click="submitRating" class="btn btn-primary" wire:loading.delay.attr='disabled'>Submit
                             Rating</button>
                     </div>
                 </div>

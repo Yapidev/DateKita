@@ -20,10 +20,10 @@
                     </div>
                     <div class="d-flex gap-2">
                         <button class="btn btn-warning" wire:click='editExpense({{ $item->id }})'
-                            wire:loading.attr='disabled' wire:target='editExpense({{ $item->id }})'>
+                            wire:loading.delay.attr='disabled' wire:target='editExpense({{ $item->id }})'>
                             <i class="ti ti-edit"></i></button>
                         <button class="btn btn-danger" wire:click='deleteConfirmation({{ $item->id }})'
-                            wire:loading.attr='disabled' wire:target='deleteConfirmation({{ $item->id }})'>
+                            wire:loading.delay.attr='disabled' wire:target='deleteConfirmation({{ $item->id }})'>
                             <i class="ti ti-trash"></i></button>
                     </div>
                 </div>
