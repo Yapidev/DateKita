@@ -8,7 +8,10 @@ use Livewire\Component;
 
 class ListDate extends Component
 {
+    public $date_id;
+
     #[On('new-date-created')]
+    #[On('new-date-updated')]
     public function render()
     {
         $dates = Date::getAllDatesOrderedByDateTime();
@@ -18,5 +21,17 @@ class ListDate extends Component
             'dates' => $dates,
             'classes' => $classes
         ]);
+    }
+
+    public function deleteDate($date_id)
+    {
+        Date::findOrFail($date_id)->delete();
+
+        $this->notify('Berhasil', 'Berhasil menghapus Kencan', 'success');
+    }
+
+    public function notify(string $title, string $message, string $icon)
+    {
+        return $this->dispatch('notify', title: $title, message: $message, icon: $icon)->self();
     }
 }

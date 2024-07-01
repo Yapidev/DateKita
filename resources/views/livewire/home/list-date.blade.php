@@ -23,10 +23,13 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item cursor-pointer">Edit</a>
+                                <a class="dropdown-item cursor-pointer" @click="$dispatch('edit-date', {date_id: {{ $item->id }}})">Edit</a>
                             </li>
                             <li>
-                                <a class="dropdown-item cursor-pointer">Hapus</a>
+                                <a class="dropdown-item cursor-pointer"
+                                    @click="$dispatch('delete-confirmation',
+                                    {title: 'Apakah anda yakin?', message: 'Semua data pengeluaran dan rating juga akan terhapus', date_id: {{ $item->id }}}).self()">Hapus
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -36,4 +39,36 @@
             <p>Tidak ada jadwal kencan</p>
         @endforelse
     </div>
+    @script
+        <script>
+            $wire.on('notify', data => {
+                Swal.fire({
+                    icon: data.icon,
+                    title: data.title,
+                    text: data.message,
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+            });
+
+            $wire.on('delete-confirmation', data => {
+                Swal.fire({
+                    title: data.title,
+                    text: data.message,
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya, hapus!"
+                }).then((result) => {
+                    if (result.value) {
+                        $wire.deleteDate(data.date_id)
+                    }
+                });
+            });
+
+            $wire.on('open-modal', () => {
+                $('#addExpenseModal').modal('show');
+            });
+
+        </script>
+    @endscript
 </div>

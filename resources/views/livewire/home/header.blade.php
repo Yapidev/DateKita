@@ -8,8 +8,9 @@
                     <p class="mb-9">
                         Buat jadwal kencan sekarang!
                     </p>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDateModal">Buat
-                        Jadwal</button>
+                    <button class="btn btn-primary" wire:click='addDate'>
+                        Buat Jadwal
+                    </button>
                 </div>
                 <div class="col-sm-5">
                     <div class="position-relative mb-n7 text-end">
@@ -28,7 +29,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
                 <div class="modal-header text-bg-primary">
-                    <h6 class="modal-title text-white">Buat Jadwal</h6>
+                    <h6 class="modal-title text-white">{{ $modal_title }}</h6>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
@@ -80,8 +81,12 @@
                 </div>
                 <div class="modal-footer">
                     <div class="d-flex gap-6">
-                        <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal" wire:click='resetModal'>Batal</button>
-                        <button id="btn-n-add" class="btn btn-primary" wire:click='addDate'
+                        <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"
+                            wire:click='resetModal'>Batal</button>
+                        <button id="btn-n-add" class="btn btn-primary"
+                            @if ($modal_title == 'Tambah Kencan') wire:click='storeDate'
+                        @else
+                        wire:click='updateDate({{ $date_id }})' @endif
                             wire:loading.attr='disabled'>Simpan</button>
                     </div>
                 </div>
@@ -104,6 +109,10 @@
 
             $wire.on('close-modal', () => {
                 $('#addDateModal').modal('hide');
+            });
+
+            $wire.on('open-modal', () => {
+                $('#addDateModal').modal('show');
             });
         </script>
     @endscript

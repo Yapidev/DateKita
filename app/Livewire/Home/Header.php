@@ -4,14 +4,16 @@ namespace App\Livewire\Home;
 
 use App\Models\Date;
 use App\Traits\GetGreeting;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Header extends Component
 {
     use GetGreeting;
 
-    public $user, $date_time, $location, $description;
+    public $user, $date_time, $location, $description, $modal_title, $date_id;
 
     public function mount()
     {
@@ -49,6 +51,15 @@ class Header extends Component
 
     public function addDate()
     {
+        $this->resetModal();
+
+        $this->modal_title = 'Tambah Kencan';
+
+        $this->openModal();
+    }
+
+    public function storeDate()
+    {
         // Validasi data
         $validatedData = $this->validate();
 
@@ -68,6 +79,37 @@ class Header extends Component
         $this->dispatch('new-date-created');
     }
 
+    #[On('edit-date')]
+    public function editDate($date_id)
+    {
+        $date = Date::findOrFail($date_id);
+
+        $this->date_time = Carbon::parse($date->date_time)->format('Y-m-d');
+        $this->location = $date->location;
+        $this->description = $date->description;
+
+        $this->date_id = $date_id;
+
+        $this->modal_title = 'Edit Kencan';
+
+        $this->openModal();
+    }
+
+    public function updateDate($date_id)
+    {
+        $validatedData = $this->validate();
+
+        Date::findOrFail($date_id)->update($validatedData);
+
+        $this->resetModal();
+
+        $this->closeModal();
+
+        $this->notify('Berhasil', 'Berhasil mengedit Kencan', 'success');
+
+        $this->dispatch('new-date-updated');
+    }
+
     public function notify(string $title, string $message, string $icon)
     {
         return $this->dispatch('notify', title: $title, message: $message, icon: $icon)->self();
@@ -75,10 +117,18 @@ class Header extends Component
 
     public function resetModal()
     {
-        $this->reset('date_time', 'location', 'description');
+        $this->reset('date_time', 'location', 'description', 'modal_title', 'date_id');
 
         $this->resetValidation();
+    }
 
+    public function closeModal()
+    {
         $this->dispatch('close-modal')->self();
+    }
+
+    public function openModal()
+    {
+        $this->dispatch('open-modal')->self();
     }
 }

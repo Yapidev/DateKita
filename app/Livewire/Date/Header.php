@@ -51,7 +51,7 @@ class Header extends Component
         $validatedData = $this->validate();
 
         $validatedData['date_id'] = $this->date_id;
-        
+
         if ($this->card_color == null) {
             $this->card_color = 'primary';
         }
