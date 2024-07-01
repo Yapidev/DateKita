@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <p class="fs-2 mb-0 text-muted ">
+                                    <p class="fs-2 mb-0 text-muted mt-3">
                                         @if ($rating->updated_at !== $rating->created_at)
                                             (Di edit)
                                             {{ $rating->updated_at->diffForHumans() }}
