@@ -163,8 +163,6 @@
                 for (let i = 0; i < count; i++) {
                     stars[i].style.color = '#ffca08';
                 }
-
-                console.log('jalan wak');
             }
 
             // Inisialisasi tampilan bintang sesuai dengan rating dari database

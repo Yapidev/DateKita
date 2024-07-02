@@ -21,9 +21,9 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" wire:ignore>
                             <li>
-                                <a class="dropdown-item cursor-pointer" @click="$dispatch('edit-date', {date_id: {{ $item->id }}})">Edit</a>
+                                <a class="dropdown-item cursor-pointer" @click="$dispatch('edit-date', {date_id: {{ $item->id }}})" >Edit</a>
                             </li>
                             <li>
                                 <a class="dropdown-item cursor-pointer"
