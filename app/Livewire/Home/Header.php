@@ -72,6 +72,8 @@ class Header extends Component
         // Reset Modal
         $this->resetModal();
 
+        $this->closeModal();
+
         // Kirim notifikasi alert
         $this->notify('Berhasil', 'Berhasil membuat date baru!', 'success');
 

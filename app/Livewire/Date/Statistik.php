@@ -52,7 +52,10 @@ class Statistik extends Component
         $minExpense = $expensesPerUser->min('total');
 
         if ($expensesPerUser->count() == 1) {
-            $expense['color'] = 'text-success';
+            return $expensesPerUser->map(function ($expense) {
+                $expense['color'] = 'text-success';
+                return $expense;
+            });
         } else {
             return $expensesPerUser->map(function ($expense) use ($maxExpense, $minExpense) {
                 if ($maxExpense == $minExpense) {
