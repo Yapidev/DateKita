@@ -4,7 +4,7 @@ $(function () {
   // Feather Icon Init Js
   // feather.replace();
 
-  // $(".preloader").fadeOut();
+//   $(".preloader").fadeOut();
 
   // =================================
   // Tooltip
