@@ -13,7 +13,7 @@ class Statistik extends Component
 
     public function mount()
     {
-        $this->date = Date::findOrFail($this->date_id)->with('expenses', 'user')->first();
+        $this->date = Date::findOrFail($this->date_id)->with('expenses', 'user');
     }
 
     #[On('new-expense-created')]
