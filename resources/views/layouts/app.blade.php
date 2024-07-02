@@ -52,35 +52,32 @@
         <!-- Sidebar Start -->
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
-            @livewire('components.sidebar')
+            <livewire:components.sidebar />
             <!-- End Sidebar scroll-->
         </aside>
         <!--  Sidebar End -->
         <!--  Main wrapper -->
         <div class="body-wrapper">
             <!--  Header Start -->
-            @livewire('components.header')
+            <livewire:components.header />
             <!--  Header End -->
+            {{-- Content --}}
             <div class="container-fluid">
                 @yield('content')
             </div>
+            {{-- Content --}}
         </div>
     </div>
 
     <!--  Import Js Files -->
-    <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <!--  core files -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.init.js') }}"></script>
-    <script src="{{ asset('assets/js/app-style-switcher.js') }}"></script>
     <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <!--  current page js files -->
-    <script src="{{ asset('assets/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/toastr-init.js') }}"></script>
     <script src="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 
     {{-- STACK SCRIPT --}}

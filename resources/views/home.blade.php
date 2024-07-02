@@ -2,10 +2,10 @@
 
 @section('content')
     {{-- Header --}}
-    @livewire('home.header')
+    <livewire:home.header />
     {{-- Header --}}
 
     {{-- List Date --}}
-    @livewire('home.list-date')
+    <livewire:home.list-date />
     {{-- List Date --}}
 @endsection
