@@ -51,16 +51,20 @@ class Statistik extends Component
         $maxExpense = $expensesPerUser->max('total');
         $minExpense = $expensesPerUser->min('total');
 
-        return $expensesPerUser->map(function ($expense) use ($maxExpense, $minExpense) {
-            if ($maxExpense == $minExpense) {
-                $color = 'text-warning';
-            } elseif ($expense['total'] == $maxExpense) {
-                $color = 'text-success';
-            } elseif ($expense['total'] == $minExpense) {
-                $color = 'text-danger';
-            }
-            $expense['color'] = $color;
-            return $expense;
-        });
+        if ($expensesPerUser->count() == 1) {
+            $expense['color'] = 'text-success';
+        } else {
+            return $expensesPerUser->map(function ($expense) use ($maxExpense, $minExpense) {
+                if ($maxExpense == $minExpense) {
+                    $color = 'text-warning';
+                } elseif ($expense['total'] == $maxExpense) {
+                    $color = 'text-success';
+                } elseif ($expense['total'] == $minExpense) {
+                    $color = 'text-danger';
+                }
+                $expense['color'] = $color;
+                return $expense;
+            });
+        }
     }
 }
