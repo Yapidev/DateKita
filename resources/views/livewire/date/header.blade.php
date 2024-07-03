@@ -11,7 +11,8 @@
                         {{ $date->total_expenses }}
                     </p>
                     <a href="{{ route('home') }}" class="btn btn-warning me-2 mb-2" wire:navigate>Kembali</a>
-                    <button class="btn btn-primary mb-2" wire:click='addExpense' wire:loading.delay.attr='disabled'>Tambah
+                    <button class="btn btn-primary mb-2" wire:click='addExpense'
+                        wire:loading.delay.attr='disabled'>Tambah
                         Pengeluaran</button>
                 </div>
                 <div class="col-3">
@@ -41,12 +42,12 @@
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <div class="note-title">
-                                        <label class="form-label">Deskripsi</label>
-                                        <input type="text" id="description"
-                                            class="form-control @error('description') is-invalid @enderror"
+                                        <label class="form-label">Judul</label>
+                                        <input type="text" id="title"
+                                            class="form-control @error('title') is-invalid @enderror"
                                             minlength="25" placeholder="Isi deskripsi pengeluaran"
-                                            wire:model='description' />
-                                        @error('description')
+                                            wire:model='title' />
+                                        @error('title')
                                             <div class="invalid-feedback" role="alert">
                                                 {{ $message }}
                                             </div>
@@ -60,6 +61,18 @@
                                             class="form-control @error('amount') is-invalid @enderror" minlength="25"
                                             placeholder="Isi biaya pengeluaran" wire:model='amount' />
                                         @error('amount')
+                                            <div class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div class="note-title">
+                                        <label class="form-label">Deskripsi</label>
+                                        <textarea type="text" id="description" class="form-control @error('description') is-invalid @enderror" minlength="25" style="height: 100px"
+                                            placeholder="Isi deskripsi pengeluaran" wire:model='description'></textarea>
+                                        @error('description')
                                             <div class="invalid-feedback" role="alert">
                                                 {{ $message }}
                                             </div>

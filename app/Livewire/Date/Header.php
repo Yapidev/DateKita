@@ -10,20 +10,23 @@ use Livewire\Component;
 
 class Header extends Component
 {
-    public $date_id, $description, $amount, $paid_by, $modal_title, $expense_id, $card_color;
+    public $date_id, $description, $amount, $paid_by, $modal_title, $expense_id, $card_color, $title;
 
     protected $rules = [
-        'description' => 'required|string',
+        'title' => 'required|string',
         'amount' => 'required|numeric|min:0',
+        'description' => 'required|string',
         'paid_by' => 'required',
     ];
 
     protected $messages = [
-        'description.required' => 'Deskripsi harus diisi.',
-        'description.string' => 'Deskripsi harus berupa teks.',
+        'title.required' => 'Judul harus diisi.',
+        'title.string' => 'Judul harus berupa teks.',
         'amount.required' => 'Jumlah harus diisi.',
         'amount.numeric' => 'Jumlah harus berupa angka.',
         'amount.min' => 'Jumlah harus lebih besar atau sama dengan 0.',
+        'description.required' => 'Deskripsi harus diisi.',
+        'description.string' => 'Deskripsi harus berupa teks.',
         'paid_by.required' => 'Pembayar harus diisi.',
     ];
 
@@ -82,8 +85,9 @@ class Header extends Component
 
         $expense = Expense::findOrFail($expense_id);
 
-        $this->description = $expense->description;
+        $this->title = $expense->title;
         $this->amount = $expense->amount;
+        $this->description = $expense->description;
         $this->paid_by = $expense->paid_by;
         $this->card_color = $expense->card_header_color;
 

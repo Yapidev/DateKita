@@ -3,15 +3,19 @@
         <div class="col-xl-4 d-flex align-items-stretch">
             <div class="card w-100">
                 <div class="card-header text-bg-{{ $item->card_header_color }}">
-                    <h4 class="mb-0 text-white card-title">{{ $item->description }}</h4>
+                    <h4 class="mb-0 text-white card-title">{{ $item->title }}</h4>
                 </div>
                 <div class="card-body">
-                    <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="mb-2">
                         <h6 class="text-dark fw-bold mb-0">Biaya:</h6>
                         <span>{{ $item->formatted_amount }}</span>
                     </div>
-                    <div class="d-flex align-items-center gap-2 mb-4">
-                        <h6 class="text-dark fw-bold mb-0">Dibayar oleh:</h6>
+                    <div class="mb-2">
+                        <h6 class="text-dark fw-bold mb-0">Deskripsi:</h6>
+                        <span>{{ $item->description }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="text-dark fw-bold mb-2">Dibayar oleh:</h6>
                         <div class="d-flex align-items-center gap-2">
                             <img src="{{ asset($item->payer->showAvatar()) }}" alt="avatar" class="rounded-circle"
                                 width="40" height="40">

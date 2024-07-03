@@ -43,7 +43,7 @@ class ReviewDate extends Component
     {
         $this->ratings = $this->date->ratings()->with('users')->get();
         $ratings = $this->ratings;
-        
+
         return view('livewire.date.review-date', [
             'ratings' => $ratings
         ]);
