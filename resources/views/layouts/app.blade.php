@@ -85,12 +85,6 @@
     {{-- Livewire Script --}}
     @livewireScripts()
 
-    {{-- Fix Modal Backdrop Issues --}}
-    <script>
-        $.fn.modal.Constructor.prototype.show = () => $('.modal-backdrop').not(":first").remove()
-    </script>
-    {{-- Fix Modal Backdrop Issues --}}
-
     {{-- Sweet Alert JS --}}
     @if (session('success'))
         <script>
