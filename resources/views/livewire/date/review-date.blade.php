@@ -62,7 +62,8 @@
                     @enderror
                     {{-- Coment --}}
                     <div class="d-flex justify-content-end">
-                        <button wire:click="submitRating" class="btn btn-primary" wire:loading.delay.attr='disabled'>Submit
+                        <button wire:click="submitRating" class="btn btn-primary"
+                            wire:loading.delay.attr='disabled'>Submit
                             Rating</button>
                     </div>
                 </div>
@@ -103,7 +104,7 @@
                                         <h6 class="mb-1 fw-semibold chat-title">
                                             {{ $rating->users->name }}
                                         </h6>
-                                        <span class="fs-3 text-truncate text-body-color">{{ $rating->comment }}</span>
+                                        <span class="fs-3 text-body-color">{{ $rating->comment }}</span>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end">
