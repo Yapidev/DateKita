@@ -26,7 +26,7 @@ class ReviewDate extends Component
 
     protected $rules = [
         'rating' => 'required|integer|min:1|max:5',
-        'comment' => 'required|string|max:255',
+        'comment' => 'required|string',
     ];
 
     protected $messages = [
@@ -36,7 +36,6 @@ class ReviewDate extends Component
         'rating.max' => 'Rating maksimal adalah 5.',
         'comment.required' => 'Komentar harus diisi.',
         'comment.string' => 'Komentar harus berupa teks.',
-        'comment.max' => 'Komentar maksimal 255 karakter.',
     ];
 
     public function render()
