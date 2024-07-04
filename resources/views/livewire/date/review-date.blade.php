@@ -54,7 +54,7 @@
                     @enderror
                     {{-- Coment --}}
                     <label for="coment" class="form-label">Komentar</label>
-                    <textarea type="text" class="form-control mb-3 @error('comment') is-invalid @enderror" wire:model='comment'></textarea>
+                    <textarea type="text" style="height: 100px" class="form-control mb-3 @error('comment') is-invalid @enderror" wire:model='comment'></textarea>
                     @error('comment')
                         <div class="invalid-feedback" role="alert">
                             {{ $message }}
@@ -63,7 +63,7 @@
                     {{-- Coment --}}
                     <div class="d-flex justify-content-end">
                         <button wire:click="submitRating" class="btn btn-primary"
-                            wire:loading.delay.attr='disabled'>Submit
+                            wire:loading.delay.attr='disabled'>Simpan
                             Rating</button>
                     </div>
                 </div>
