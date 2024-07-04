@@ -78,7 +78,7 @@
                 </div>
                 <div class="card-body">
                     {{-- Ratings --}}
-                    <div class="row">
+                    <div class="row" wire:poll.visible>
                         @forelse ($ratings as $rating)
                             <div class="col-12">
                                 <div class="d-flex align-items-center">
@@ -109,12 +109,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <p class="fs-2 mb-0 text-muted mt-3">
-                                        @if ($rating->updated_at !== $rating->created_at)
-                                            (Di edit)
-                                            {{ $rating->updated_at->diffForHumans() }}
-                                        @else
-                                            {{ $rating->created_at->diffForHumans() }}
-                                        @endif
+                                        {{ $rating->getStatus() }}
                                     </p>
                                 </div>
                                 <hr>
