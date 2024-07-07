@@ -120,7 +120,7 @@ class Header extends Component
 
     public function resetModal()
     {
-        $this->reset('description', 'amount', 'paid_by', 'card_color');
+        $this->reset('description', 'amount', 'paid_by', 'card_color', 'title');
 
         $this->resetValidation();
     }
