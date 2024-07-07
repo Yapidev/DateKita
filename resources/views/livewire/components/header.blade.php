@@ -30,15 +30,13 @@
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                            <div class="dropdown-menu content-dd dropdown-menu-end"
-                                aria-labelledby="drop2">
+                            <div class="dropdown-menu content-dd dropdown-menu-end" aria-labelledby="drop2">
                                 <div class="d-flex align-items-center justify-content-between py-3 px-7">
                                     <h5 class="mb-0 fs-5 fw-semibold">Notifikasi</h5>
                                     <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">2 Baru</span>
                                 </div>
                                 <div class="message-body" data-simplebar>
-                                    <a
-                                        class="py-6 px-7 d-flex align-items-center dropdown-item">
+                                    <a class="py-6 px-7 d-flex align-items-center dropdown-item">
                                         <span class="me-3">
                                             <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="user"
                                                 class="rounded-circle" width="48" height="48" />
@@ -48,8 +46,7 @@
                                             <span class="d-block">I love youuu❤️</span>
                                         </div>
                                     </a>
-                                    <a
-                                        class="py-6 px-7 d-flex align-items-center dropdown-item">
+                                    <a class="py-6 px-7 d-flex align-items-center dropdown-item">
                                         <span class="me-3">
                                             <img src="{{ asset('assets/images/profile/user-2.jpg') }}" alt="user"
                                                 class="rounded-circle" width="48" height="48" />
@@ -67,8 +64,8 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link pe-0" href="javascript:void(0)" id="drop1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="user-profile-img">
                                         <img src="{{ asset($user->showAvatar()) }}" class="rounded-circle"
@@ -77,8 +74,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="dropdown-menu content-dd dropdown-menu-end"
-                                aria-labelledby="drop1">
+                            <div class="dropdown-menu content-dd dropdown-menu-end" aria-labelledby="drop1">
                                 <div class="profile-dropdown position-relative" data-simplebar>
                                     <div class="py-3 px-7 pb-0">
                                         <h5 class="mb-0 fs-5 fw-semibold">User Profile</h5>
@@ -97,16 +93,17 @@
                                         </div>
                                     </div>
                                     <div class="message-body">
-                                        <a href="" class="py-8 px-7 mt-8 d-flex align-items-center">
+                                        <a href="{{ route('profile') }}"
+                                            class="py-8 px-7 mt-8 d-flex align-items-center" wire:navigate>
                                             <span
                                                 class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                                                 <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-account.svg"
                                                     alt="icon" width="24" height="24">
                                             </span>
                                             <div class="w-75 d-inline-block v-middle ps-3">
-                                                <h6 class="mb-1 bg-hover-primary fw-semibold"> My Profile
+                                                <h6 class="mb-1 bg-hover-primary fw-semibold"> Profile
                                                 </h6>
-                                                <span class="d-block text-dark">Account Settings</span>
+                                                <span class="d-block text-dark">Atur Profil mu</span>
                                             </div>
                                         </a>
                                     </div>

@@ -31,4 +31,16 @@ class Rating extends Model
     {
         return $this->belongsTo(Date::class, 'date_id');
     }
+
+    public function getStatus()
+    {
+        $created = $this->created_at;
+        $updated = $this->updated_at;
+
+        if ($updated != $created) {
+            return '(Di edit) ' . $updated->diffForHumans();
+        } else {
+            return $created->diffForHumans();
+        }
+    }
 }
