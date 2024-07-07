@@ -24,7 +24,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ Auth::user()->id == 1 ? '/chat/2' : 'chat/1' }}"
-                        aria-expanded="false" wire:navigate>
+                        aria-expanded="false">
                         <span>
                             <i class="ti ti-messages"></i>
                         </span>
