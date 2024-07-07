@@ -22,6 +22,15 @@
                         <span class="hide-menu">Home</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ Auth::user()->id == 1 ? '/chat/2' : 'chat/1' }}"
+                        aria-expanded="false" wire:navigate>
+                        <span>
+                            <i class="ti ti-messages"></i>
+                        </span>
+                        <span class="hide-menu">Chat</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
