@@ -10,18 +10,23 @@ use Livewire\Component;
 class ReviewDate extends Component
 {
     public Date $date;
-    public $ratings;
-    public $rating, $comment;
+    public Rating $ratings;
+    public int $rating;
+    public string $comment;
 
-    public function mount($date_id)
+    public function mount(int $date_id)
     {
-        $this->date = Date::find($date_id);
-        $authRating = $this->date->getAuthRating();
+        $this->date = Date::findOrFail($date_id);
+        $authRating = $this->date->getAuthRating;
 
         if ($authRating) {
             $this->rating = $authRating->rating;
             $this->comment = $authRating->comment;
         }
+
+        $this->ratings = $this->date->ratings()->with('users')
+            ->orderByDesc('created_at')
+            ->get();
     }
 
     protected $rules = [
@@ -40,7 +45,6 @@ class ReviewDate extends Component
 
     public function render()
     {
-        $this->ratings = $this->date->ratings()->with('users')->get();
         $ratings = $this->ratings;
 
         return view('livewire.date.review-date', [
