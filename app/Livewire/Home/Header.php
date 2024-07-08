@@ -6,7 +6,6 @@ use App\Models\Date;
 use App\Traits\GetGreeting;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -16,7 +15,7 @@ class Header extends Component
     use GetGreeting;
 
     public string $greeting;
-    public Collection $user;
+    public mixed $user;
     public date $date_time;
     public string $location;
     public string $description;
