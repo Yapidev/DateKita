@@ -18,7 +18,7 @@ class Header extends Component
 
     public string $greeting;
     public ?User $user;
-    public ?DateTime $date_time;
+    public mixed $date_time;
     public string $location;
     public string $description;
     public string $modal_title;
