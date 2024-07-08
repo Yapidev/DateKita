@@ -63,7 +63,7 @@ class Date extends Model
      */
     public function getAuthRating()
     {
-        return $this->ratings()->where('user_id', Auth::id())->first();
+        return $this->ratings()->where('user_id', Auth::id());
     }
 
     /**
