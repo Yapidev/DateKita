@@ -2,7 +2,7 @@
 
 namespace App\Models\Traits\Expenses;
 
-trait ExpensesAccessor
+trait ExpensesAccessors
 
 {
     /**

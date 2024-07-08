@@ -6,7 +6,7 @@ use App\Models\Date;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-trait RatingRelation
+trait RatingRelations
 
 {
     /**

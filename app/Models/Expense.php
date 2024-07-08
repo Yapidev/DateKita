@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Expenses\ExpensesAccessor;
-use App\Models\Traits\Expenses\ExpensesRelation;
+use App\Models\Traits\Expenses\ExpensesAccessors;
+use App\Models\Traits\Expenses\ExpensesRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Expense extends Model
 {
-    use HasFactory, ExpensesRelation, ExpensesAccessor;
+    use HasFactory, ExpensesRelations, ExpensesAccessors;
 
     protected $guarded = ['id'];
 }

@@ -7,7 +7,7 @@ use App\Models\Expense;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-trait UserRelation
+trait UserRelations
 
 {
     /**

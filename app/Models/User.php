@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Traits\User\UserRelation;
+use App\Models\Traits\User\UserRelations;
 use App\Models\Traits\User\UserUtilities;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, UserRelation, UserUtilities;
+    use HasFactory, Notifiable, UserRelations, UserUtilities;
 
     /**
      * guarded
