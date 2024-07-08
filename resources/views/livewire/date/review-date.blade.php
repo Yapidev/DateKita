@@ -78,7 +78,7 @@
                 </div>
                 <div class="card-body">
                     {{-- Ratings --}}
-                    <div class="row">
+                    <div class="row" wire:poll.visible>
                         @forelse ($ratings as $rating)
                             <div class="col-12">
                                 <div class="d-flex align-items-center">
