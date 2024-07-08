@@ -10,7 +10,7 @@ use Livewire\Component;
 class ReviewDate extends Component
 {
     public Date $date;
-    public Rating $ratings;
+    public $ratings;
     public int $rating;
     public string $comment;
 
