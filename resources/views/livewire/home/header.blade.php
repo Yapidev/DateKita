@@ -44,9 +44,9 @@
                                             class="form-control @error('date_time') is-invalid @enderror" minlength="25"
                                             placeholder="Isi tanggal" wire:model='date_time' />
                                         @error('date_time')
-                                            <span class="text-danger" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                            <div class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </div>
                                         @enderror
                                     </div>
                                 </div>
@@ -57,9 +57,9 @@
                                             class="form-control @error('location') is-invalid @enderror" minlength="25"
                                             placeholder="Isi lokasi kencan" wire:model='location' />
                                         @error('location')
-                                            <span class="text-danger" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                            <div class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </div>
                                         @enderror
                                     </div>
                                 </div>
