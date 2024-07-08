@@ -30,14 +30,12 @@ class ListDate extends Component
     #[On('new-date-updated')]
     public function render()
     {
-        return view(
-            'livewire.home.list-date'
-        );
+        return view('livewire.home.list-date');
     }
 
-    public function deleteDate($date_id)
+    public function deleteDate(int $date_id)
     {
-        Date::findOrFail($date_id)->delete();
+        Date::destroy($date_id);
 
         $this->notify('Berhasil', 'Berhasil menghapus Kencan', 'success');
     }

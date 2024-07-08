@@ -5,6 +5,8 @@ namespace App\Livewire\Home;
 use App\Models\Date;
 use App\Traits\GetGreeting;
 use Carbon\Carbon;
+use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -13,11 +15,18 @@ class Header extends Component
 {
     use GetGreeting;
 
-    public $user, $date_time, $location, $description, $modal_title, $date_id;
+    public string $greeting;
+    public Collection $user;
+    public date $date_time;
+    public string $location;
+    public string $description;
+    public string $modal_title;
+    public int $date_id;
 
     public function mount()
     {
         $this->user = Auth::user();
+        $this->greeting = $this->getGreeting($this->user);
     }
 
     protected $rules = [
@@ -39,14 +48,11 @@ class Header extends Component
     /**
      * Fungsi untuk render view
      *
-     * @return void
+     * @return View
      */
-    public function render()
+    public function render(): View
     {
-        return view('livewire.home.header', [
-            'user' => $this->user,
-            'greeting' => $this->getGreeting($this->user)
-        ]);
+        return view('livewire.home.header');
     }
 
     public function addDate()
