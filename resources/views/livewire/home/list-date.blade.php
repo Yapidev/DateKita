@@ -12,7 +12,7 @@
                     <div class="note-content">
                         <p class="note-inner-content"
                             data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
-                            {{ $item->description ? $item->description : 'Tidak ada deskripsi' }} </p>
+                            {{ $item->description ? Str::limit($item->description, 100, '...') : 'Tidak ada deskripsi' }} </p>
                     </div>
                     <div class="btn-group col-7">
                         <a href="{{ route('date.show', $item->id) }}" class="btn btn-primary" wire:navigate>Lihat
