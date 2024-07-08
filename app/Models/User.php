@@ -22,26 +22,6 @@ class User extends Authenticatable
     protected $guarded = ['id'];
 
     /**
-     * Relasi untuk mendapatkan date user terkait
-     *
-     * @return BelongsToMany
-     */
-    public function dates(): BelongsToMany
-    {
-        return $this->belongsToMany(Date::class, 'user_dates')->withTimestamps();
-    }
-
-    /**
-     * Relasi has many ke table expenses
-     *
-     * @return HasMany
-     */
-    public function expenses(): HasMany
-    {
-        return $this->hasMany(Expense::class);
-    }
-
-    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -63,33 +43,4 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    /**
-     * Fungsi untuk menampilkan avatar user
-     *
-     * @return void
-     */
-    public function showAvatar()
-    {
-        if (!$this->avatar) {
-            return $this->gender == 'male'
-                ? 'assets/images/profile/user-1.jpg'
-                : 'assets/images/profile/user-2.jpg';
-        }
-
-        return 'storage/' . $this->avatar;
-    }
-
-    /**
-     * Accessor untuk mendapatkan atribut name
-     *
-     * @param  mixed $value
-     * @return void
-     */
-    // public function getNameAttribute($value)
-    // {
-    //     return $this->id == Auth::id()
-    //         ? 'Kamu'
-    //         : $value;
-    // }
 }
