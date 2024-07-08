@@ -17,7 +17,7 @@ class ReviewDate extends Component
     public function mount(int $date_id)
     {
         $this->date = Date::findOrFail($date_id);
-        $authRating = $this->date->getAuthRating->get();
+        $authRating = $this->date->getAuthRating;
 
         if ($authRating) {
             $this->rating = $authRating->rating;
