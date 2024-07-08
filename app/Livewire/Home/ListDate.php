@@ -3,13 +3,14 @@
 namespace App\Livewire\Home;
 
 use App\Models\Date;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ListDate extends Component
 {
     public int $date_id;
-    public Date $dates;
+    public Collection $dates;
     public array $classes;
 
     public function mount()
