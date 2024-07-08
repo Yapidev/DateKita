@@ -14,7 +14,7 @@
                             data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
                             {{ $item->description ? Str::limit($item->description, 100, '...') : 'Tidak ada deskripsi' }} </p>
                     </div>
-                    <div class="btn-group col-7">
+                    <div class="btn-group col-7 col-xl-8">
                         <a href="{{ route('date.show', $item->id) }}" class="btn btn-primary" wire:navigate>Lihat
                             Detail</a>
                         <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
