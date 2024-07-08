@@ -10,7 +10,7 @@ use Livewire\Component;
 class ListDate extends Component
 {
     public int $date_id;
-    public $dates;
+    public Collection $dates;
     public array $classes;
 
     public function mount()
