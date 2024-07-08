@@ -3,8 +3,10 @@
 namespace App\Livewire\Home;
 
 use App\Models\Date;
+use App\Models\User;
 use App\Traits\GetGreeting;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
@@ -15,8 +17,8 @@ class Header extends Component
     use GetGreeting;
 
     public string $greeting;
-    public mixed $user;
-    public date $date_time;
+    public ?User $user;
+    public ?DateTime $date_time;
     public string $location;
     public string $description;
     public string $modal_title;
