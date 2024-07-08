@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Date extends Model
 {
-    use HasFactory, DateRelation, DateAccessors, DateUtilities;
+    use HasFactory, DateAccessors, DateUtilities;
 
     protected $guarded = ['id'];
 }
