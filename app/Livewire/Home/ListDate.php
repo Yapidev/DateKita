@@ -8,19 +8,30 @@ use Livewire\Component;
 
 class ListDate extends Component
 {
-    public $date_id;
+    public int $date_id;
+    public Date $dates;
+    public array $classes;
+
+    public function mount()
+    {
+        $this->dates = Date::query()
+            ->orderByDesc('date_time')
+            ->get();
+
+        $this->classes = [
+            'note-important',
+            'note-social',
+            'note-business'
+        ];
+    }
 
     #[On('new-date-created')]
     #[On('new-date-updated')]
     public function render()
     {
-        $dates = Date::getAllDatesOrderedByDateTime();
-        $classes = ['note-important', 'note-social', 'note-business'];
-
-        return view('livewire.home.list-date', [
-            'dates' => $dates,
-            'classes' => $classes
-        ]);
+        return view(
+            'livewire.home.list-date'
+        );
     }
 
     public function deleteDate($date_id)
