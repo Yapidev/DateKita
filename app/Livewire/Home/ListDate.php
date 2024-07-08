@@ -9,7 +9,6 @@ use Livewire\Component;
 
 class ListDate extends Component
 {
-    public int $date_id;
     public array $classes;
 
     public function mount()
@@ -34,9 +33,9 @@ class ListDate extends Component
         ]);
     }
 
-    public function deleteDate(int $date_id)
+    public function deleteDate(Date $date)
     {
-        Date::destroy($date_id);
+        $date->delete();
 
         $this->notify('Berhasil', 'Berhasil menghapus Kencan', 'success');
     }
