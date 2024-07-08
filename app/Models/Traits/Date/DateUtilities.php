@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Traits;
+namespace App\Models\Traits\Date;
 
 use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
