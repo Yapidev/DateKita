@@ -10,15 +10,10 @@ use Livewire\Component;
 class ListDate extends Component
 {
     public int $date_id;
-    public Collection $dates;
     public array $classes;
 
     public function mount()
     {
-        $this->dates = Date::query()
-            ->orderByDesc('date_time')
-            ->get();
-
         $this->classes = [
             'note-important',
             'note-social',
@@ -30,7 +25,13 @@ class ListDate extends Component
     #[On('new-date-updated')]
     public function render()
     {
-        return view('livewire.home.list-date');
+        $dates = Date::query()
+            ->orderByDesc('date_time')
+            ->get();
+
+        return view('livewire.home.list-date', [
+            'dates' => $dates
+        ]);
     }
 
     public function deleteDate(int $date_id)
