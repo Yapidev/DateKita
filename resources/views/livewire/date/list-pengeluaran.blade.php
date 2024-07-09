@@ -1,4 +1,4 @@
-<div class="row">
+<div>
     <div class="col-xl-4 d-flex align-items-stretch">
         <div class="card w-100">
             <div class="card-header text-bg-{{ $expense->card_header_color }}">

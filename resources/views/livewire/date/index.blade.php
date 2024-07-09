@@ -26,13 +26,15 @@
     <!-- Tab panes -->
     <div class="tab-content mt-2">
         <div class="tab-pane active" id="navpill-11" role="tabpanel">
-            {{-- List Pengeluaran --}}
-            @forelse ($date->expenses as $expense)
-                <livewire:date.list-pengeluaran :expense="$expense" :key="$expense->id" />
-            @empty
-                <p>tidak ada pengeluaran</p>
-            @endforelse
-            {{-- List Pengeluaran --}}
+            <div class="row">
+                {{-- List Pengeluaran --}}
+                @forelse ($date->expenses as $expense)
+                    <livewire:date.list-pengeluaran :expense="$expense" :key="$expense->id" />
+                @empty
+                    <p>tidak ada pengeluaran</p>
+                @endforelse
+                {{-- List Pengeluaran --}}
+            </div>
         </div>
         <div class="tab-pane" id="navpill-22" role="tabpanel">
             {{-- Statistik --}}
