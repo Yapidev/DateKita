@@ -26,7 +26,8 @@
     <!-- Tab panes -->
     <div class="tab-content mt-2">
         <div class="tab-pane active" id="navpill-11" role="tabpanel">
-            <div class="row">
+            <div class="row" x-on:new-expense-created.window="$wire.$refresh"
+                x-on:new-expense-updated.window="$wire.$refresh">
                 {{-- List Pengeluaran --}}
                 @forelse ($date->expenses as $expense)
                     <livewire:date.list-pengeluaran :expense="$expense" :key="$expense->id" />

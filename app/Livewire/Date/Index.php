@@ -3,15 +3,12 @@
 namespace App\Livewire\Date;
 
 use App\Models\Date;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Index extends Component
 {
     public int $dateId;
 
-    #[On('new-expense-created')]
-    #[On('new-expense-updated')]
     public function render()
     {
         $date = Date::query()
