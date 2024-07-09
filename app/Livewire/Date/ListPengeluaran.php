@@ -13,7 +13,9 @@ class ListPengeluaran extends Component
 
     public function render()
     {
-        return view('livewire.date.list-pengeluaran');
+        return view('livewire.date.list-pengeluaran', [
+            'expense' => $this->expense
+        ]);
     }
 
     public function deleteExpense(int $expense_id)
@@ -23,7 +25,6 @@ class ListPengeluaran extends Component
         $this->dispatch('expense-deleted');
 
         return $this->dispatch('notify', title: 'Berhasil', message: 'Berhasil menghapus pengeluaran', icon: 'success')->self();
-
     }
 
     public function editExpense(int $expense_id)
