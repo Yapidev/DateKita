@@ -1,6 +1,6 @@
 <div>
     {{-- Header --}}
-    <livewire:date.header :date="$date" />
+    <livewire:date.header :$date />
     {{-- Header --}}
 
     <!-- Nav tabs -->
@@ -28,8 +28,8 @@
         <div class="tab-pane active" id="navpill-11" role="tabpanel">
             <div class="row">
                 {{-- List Pengeluaran --}}
-                @forelse ($expenses as $expense)
-                    <livewire:date.list-pengeluaran :expense="$expense" :key="$expense->id" />
+                @forelse ($date->expenses as $expense)
+                    <livewire:date.list-pengeluaran :$expense :key="$expense->id" />
                 @empty
                     <p>tidak ada pengeluaran</p>
                 @endforelse
@@ -38,12 +38,12 @@
         </div>
         <div class="tab-pane" id="navpill-22" role="tabpanel">
             {{-- Statistik --}}
-            <livewire:date.statistik :date="$date" />
+            <livewire:date.statistik :$date />
             {{-- Statistik --}}
         </div>
         <div class="tab-pane" id="navpill-33" role="tabpanel">
             {{-- Review Date --}}
-            <livewire:date.review-date :date="$date" />
+            <livewire:date.review-date :$date />
             {{-- Review Date --}}
         </div>
     </div>

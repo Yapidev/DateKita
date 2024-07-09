@@ -19,11 +19,8 @@ class Index extends Component
             ->with(['expenses.payer', 'ratings'])
             ->findOrFail($this->dateId);
 
-        $expenses = $date->expenses;
-
         return view('livewire.date.index', [
-            'date' => $date,
-            'expenses' => $expenses
+            'date' => $date
         ]);
     }
 }

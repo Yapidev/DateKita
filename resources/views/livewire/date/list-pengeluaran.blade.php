@@ -21,11 +21,12 @@
                 </div>
             </div>
             <div class="d-flex gap-2">
-                <button class="btn btn-warning" wire:click='editExpense({{ $expense->id }})'
-                    wire:loading.delay.attr='disabled' wire:target='editExpense({{ $expense->id }})'>
+                <button class="btn btn-warning" @click="$dispatch('edit-expense', { expense_id: {{ $expense->id }} })"
+                    wire:loading.delay.attr='disabled'>
                     <i class="ti ti-edit"></i></button>
-                <button class="btn btn-danger" wire:click='deleteConfirmation({{ $expense->id }})'
-                    wire:loading.delay.attr='disabled' wire:target='deleteConfirmation({{ $expense->id }})'>
+                <button class="btn btn-danger"
+                    @click="$dispatch('delete-confirmation', { title: 'Apakah anda yakin?', message: 'Data tidak bisa di kembalikan', expense_id: {{ $expense->id }} })"
+                    wire:loading.delay.attr='disabled'>
                     <i class="ti ti-trash"></i></button>
             </div>
         </div>
@@ -53,6 +54,8 @@
                 }).then((result) => {
                     if (result.value) {
                         $wire.deleteExpense(data.expense_id)
+
+                        console.log(data.expense_id)
                     }
                 });
             })
