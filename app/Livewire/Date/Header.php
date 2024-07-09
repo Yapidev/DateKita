@@ -10,7 +10,14 @@ use Livewire\Component;
 
 class Header extends Component
 {
-    public $date_id, $description, $amount, $paid_by, $modal_title, $expense_id, $card_color, $title;
+    public Date $date;
+    public $description;
+    public $amount;
+    public $paid_by;
+    public $modal_title;
+    public $expense_id;
+    public $card_color;
+    public $title;
 
     protected $rules = [
         'title' => 'required|string',
@@ -32,10 +39,8 @@ class Header extends Component
 
     public function render()
     {
-        $date = Date::findOrFail($this->date_id);
         $users = User::query()->get();
         return view('livewire.date.header', [
-            'date' => $date,
             'users' => $users
         ]);
     }
@@ -53,7 +58,7 @@ class Header extends Component
     {
         $validatedData = $this->validate();
 
-        $validatedData['date_id'] = $this->date_id;
+        $validatedData['date_id'] = $this->date->id;
 
         if ($this->card_color == null) {
             $this->card_color = 'primary';

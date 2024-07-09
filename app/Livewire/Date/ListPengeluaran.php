@@ -2,22 +2,20 @@
 
 namespace App\Livewire\Date;
 
+use App\Models\Date;
 use App\Models\Expense;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ListPengeluaran extends Component
 {
-    public $date;
+    public $expense;
 
     #[On('new-expense-created')]
     #[On('new-expense-updated')]
     public function render()
     {
-        $expenses = $this->date->expenses()->with('payer')->latest()->get();
-        return view('livewire.date.list-pengeluaran', [
-            'expenses' => $expenses
-        ]);
+        return view('livewire.date.list-pengeluaran');
     }
 
     public function deleteExpense(int $expense_id)

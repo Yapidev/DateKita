@@ -36,7 +36,8 @@ class DateController extends Controller
      */
     public function show(Date $date)
     {
-        return view('date.show', compact('date'));
+        $dateId = $date->id;
+        return view('date.show', compact('dateId'));
     }
 
     /**

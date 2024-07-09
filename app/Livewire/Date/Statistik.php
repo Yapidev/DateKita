@@ -9,12 +9,7 @@ use Livewire\Component;
 
 class Statistik extends Component
 {
-    public $date_id, $date;
-
-    public function mount()
-    {
-        $this->date = Date::where('id', $this->date_id)->with('expenses', 'user')->first();
-    }
+    public Date $date;
 
     #[On('new-expense-created')]
     #[On('new-expense-updated')]

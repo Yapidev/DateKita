@@ -13,9 +13,8 @@ class ReviewDate extends Component
     public ?int $rating = null;
     public ?string $comment = null;
 
-    public function mount(int $date_id)
+    public function mount()
     {
-        $this->date = Date::findOrFail($date_id);
         $authRating = $this->date->getAuthRating;
 
         if ($authRating) {
