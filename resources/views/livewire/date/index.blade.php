@@ -29,7 +29,7 @@
             <div class="row">
                 {{-- List Pengeluaran --}}
                 @forelse ($date->expenses as $expense)
-                    <livewire:date.list-pengeluaran :$expense :key="$expense->id" />
+                    <livewire:date.list-pengeluaran :$expense wire:key="{{ now() }}" />
                 @empty
                     <p>tidak ada pengeluaran</p>
                 @endforelse
