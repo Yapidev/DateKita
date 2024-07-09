@@ -51,6 +51,8 @@ class Statistik extends Component
         $maxExpense = $expensesPerUser->max('total');
         $minExpense = $expensesPerUser->min('total');
 
+        $expensesPerUser = $expensesPerUser->sortByDesc('total');
+
         if ($expensesPerUser->count() == 1) {
             return $expensesPerUser->map(function ($expense) {
                 $expense['color'] = 'text-success';
