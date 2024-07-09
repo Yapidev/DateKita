@@ -35,15 +35,15 @@
                 @endforelse
                 {{-- List Pengeluaran --}}
             </div>
-            <div class="tab-pane" id="navpill-22" role="tabpanel">
-                {{-- Statistik --}}
-                <livewire:date.statistik :date="$date" />
-                {{-- Statistik --}}
-            </div>
-            <div class="tab-pane" id="navpill-33" role="tabpanel">
-                {{-- Review Date --}}
-                <livewire:date.review-date :date="$date" />
-                {{-- Review Date --}}
-            </div>
+        </div>
+        <div class="tab-pane" id="navpill-22" role="tabpanel">
+            {{-- Statistik --}}
+            <livewire:date.statistik :date="$date" />
+            {{-- Statistik --}}
+        </div>
+        <div class="tab-pane" id="navpill-33" role="tabpanel">
+            {{-- Review Date --}}
+            <livewire:date.review-date :date="$date" />
+            {{-- Review Date --}}
         </div>
     </div>
