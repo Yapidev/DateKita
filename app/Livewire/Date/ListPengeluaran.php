@@ -3,12 +3,10 @@
 namespace App\Livewire\Date;
 
 use App\Models\Expense;
-use Livewire\Attributes\Reactive;
 use Livewire\Component;
 
 class ListPengeluaran extends Component
 {
-    #[Reactive]
     public $expense;
 
     public function render()
