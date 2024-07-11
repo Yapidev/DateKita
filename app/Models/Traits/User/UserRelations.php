@@ -27,6 +27,6 @@ trait UserRelations
      */
     public function expenses(): HasMany
     {
-        return $this->hasMany(Expense::class);
+        return $this->hasMany(Expense::class, 'paid_by');
     }
 }

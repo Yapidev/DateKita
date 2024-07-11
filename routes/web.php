@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DateController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -21,5 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::resource('date', DateController::class)->only('show');
+    Route::get('my-expense', [ExpenseController::class, 'index'])->name('my-expense');
 });
 

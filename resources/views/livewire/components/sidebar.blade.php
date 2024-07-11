@@ -23,6 +23,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('my-expense') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-receipt-2"></i>
+                        </span>
+                        <span class="hide-menu">Pengeluaranku</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ Auth::user()->id == 1 ? '/chat/2' : 'chat/1' }}"
                         aria-expanded="false">
                         <span>

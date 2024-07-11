@@ -5,6 +5,7 @@
             <div class="row align-items-center">
                 <div class="col-9">
                     <h4 class="fw-semibold mb-8">Profil</h4>
+                    <p>Ini adalah halaman yang berisi detail profil anda.</p>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">

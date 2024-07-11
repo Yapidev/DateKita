@@ -56,10 +56,10 @@
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="note-title">
-                                        <label class="form-label">Biaya</label>
+                                        <label class="form-label">Nominal</label>
                                         <input type="number" id="amount"
                                             class="form-control @error('amount') is-invalid @enderror" minlength="25"
-                                            placeholder="Isi biaya pengeluaran" wire:model='amount' />
+                                            placeholder="Isi nominal pengeluaran" wire:model='amount' />
                                         @error('amount')
                                             <div class="invalid-feedback" role="alert">
                                                 {{ $message }}
