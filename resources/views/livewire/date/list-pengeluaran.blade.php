@@ -16,7 +16,7 @@
                 <h6 class="text-dark fw-bold mb-2">Dibayar oleh:</h6>
                 <div class="d-flex align-items-center gap-2">
                     <img src="{{ asset($expense->payer->showAvatar()) }}" alt="avatar" class="rounded-circle"
-                        width="40" height="40">
+                        width="40" height="40" style="object-fit: cover">
                     <span>{{ $expense->payer->name }}</span>
                 </div>
             </div>
