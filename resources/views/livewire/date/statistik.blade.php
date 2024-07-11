@@ -23,8 +23,10 @@
                 <div class="card-body">
                     @forelse ($totalExpensesPerUser as $user)
                         <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="{{ asset($user['avatar']) }}" alt="avatar" class="rounded-circle" width="40"
-                                height="40" style="object-fit: cover">
+                            <div class="avatar-container" style="width: 40px; height: 40px;">
+                                <img src="{{ asset($user['avatar']) }}" alt="avatar" class="rounded-circle"
+                                    width="40" height="40" style="object-fit: cover">
+                            </div>
                             <span>
                                 <span class="text-dark fw-bold">{{ $user['name'] }}:</span>
                                 Rp. {{ number_format($user['total'], 0, ',', '.') }}
