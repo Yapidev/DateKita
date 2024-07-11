@@ -30,6 +30,8 @@ class Header extends Component
 
         $this->dispatch('close-modal');
 
+        $this->dispatch('target-expense-updated');
+
         if ($this->user->wasChanged()) {
             $this->notify('Berhasil', 'Berhasil mengisi target', 'success');
         } else {

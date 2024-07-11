@@ -2,6 +2,7 @@
 
 namespace App\Livewire\MyExpense;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Index extends Component
@@ -14,6 +15,7 @@ class Index extends Component
         $this->currentMonthExpense = $user->getCurrentMonthExpense();
     }
 
+    #[On('target-expense-updated')]
     public function render()
     {
         return view('livewire.my-expense.index');
