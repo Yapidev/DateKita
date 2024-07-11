@@ -29,37 +29,35 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
-                <form wire:submit='addTargetExpense'>
-                    <div class="modal-body">
-                        <div class="notes-box">
-                            <div class="notes-content">
-                                <div class="row">
-                                    <div class="col-md-12 mb-3">
-                                        <div class="note-title">
-                                            <label class="form-label">Nominal</label>
-                                            <input type="number" id="target_expense"
-                                                class="form-control @error('target_expense') is-invalid @enderror"
-                                                minlength="25" placeholder="Isi nominal target pengeluaran"
-                                                wire:model='target_expense' />
-                                            @error('target_expense')
-                                                <div class="invalid-feedback" role="alert">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
+                <div class="modal-body">
+                    <div class="notes-box">
+                        <div class="notes-content">
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <div class="note-title">
+                                        <label class="form-label">Nominal</label>
+                                        <input type="number" id="target_expense"
+                                            class="form-control @error('target_expense') is-invalid @enderror"
+                                            minlength="25" placeholder="Isi nominal target pengeluaran"
+                                            wire:model='target_expense' />
+                                        @error('target_expense')
+                                            <div class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <div class="d-flex gap-6">
-                            <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"
-                                wire:click='resetModal'>Batal</button>
-                            <button id="btn-n-add" class="btn btn-primary">Simpan</button>
-                        </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex gap-6">
+                        <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"
+                            wire:click='resetModal'>Batal</button>
+                        <button id="btn-n-add" class="btn btn-primary" wire:click='addTargetExpense'>Simpan</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
