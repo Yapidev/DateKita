@@ -23,6 +23,7 @@
                 font-size: 2rem;
                 position: relative;
             }
+
         </style>
     @endpush
 

@@ -32,6 +32,13 @@
 
     {{-- Livewire Style --}}
     @livewireStyles()
+
+    {{-- Custom CSS --}}
+    <style>
+        img {
+            object-fit: cover;
+        }
+    </style>
 </head>
 
 <body>
