@@ -108,11 +108,8 @@
                                         </a>
                                     </div>
                                     <div class="d-grid py-4 px-7 pt-8">
-                                        <form action="" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-outline-primary w-100">Log
-                                                Out</button>
-                                        </form>
+                                        <button class="btn btn-outline-primary w-100" wire:click='logout'>Log
+                                            Out</button>
                                     </div>
                                 </div>
                             </div>

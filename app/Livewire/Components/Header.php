@@ -16,4 +16,11 @@ class Header extends Component
             'user' => Auth::user()
         ]);
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('login');
+    }
 }
