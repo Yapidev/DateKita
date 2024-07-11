@@ -6,7 +6,7 @@
                 <div class="col-9">
                     <h4 class="fw-semibold mb-8">{{ $date->location }}</h4>
                     <p class="mb-8">{{ $date->description }}</p>
-                    <p class="mb-8">
+                    <p class="mb-8" x-on:expense-deleted.window="$wire.$refresh">
                         <span class="fw-semibold text-dark">Total Pengeluaran:</span>
                         {{ $date->total_expenses }}
                     </p>
