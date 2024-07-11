@@ -18,6 +18,6 @@ trait UserUtilities
                 : 'assets/images/profile/user-2.jpg';
         }
 
-        return 'storage/' . $this->avatar;
+        return 'storage/users-avatar/' . $this->avatar;
     }
 }

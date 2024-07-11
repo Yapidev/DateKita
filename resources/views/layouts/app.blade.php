@@ -64,10 +64,6 @@
         </div>
     </div>
 
-    {{-- Dark Background Sidebar --}}
-    <div class="dark-transparent sidebartoggler"></div>
-    {{-- Dark Background Sidebar --}}
-
     <!--  Import Js Files -->
     <script data-navigate-once src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script data-navigate-once src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
