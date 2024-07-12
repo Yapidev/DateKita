@@ -1,5 +1,5 @@
 <div>
-    <div class="card hover-img">
+    <div class="card">
         <div class="card-header bg-primary">
             <h4 class="mb-0 text-white">Detail Pengeluaran</h4>
         </div>

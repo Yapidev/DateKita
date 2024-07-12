@@ -2,12 +2,14 @@
 
 namespace App\Livewire\MyExpense;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class DetailExpense extends Component
 {
-    public $user;
+    public User $user;
     public $currentMonthExpense;
     public $targetExpense;
     public $difference;
@@ -15,8 +17,12 @@ class DetailExpense extends Component
     public $percentage;
     public $color;
 
-    #[On('target-expense-updated')]
-    public function render()
+    public function mount()
+    {
+        $this->user = Auth::user();
+    }
+
+    public function calcuteExpenses()
     {
         $this->currentMonthExpense = $this->user->getCurrentMonthExpense();
         $this->targetExpense = $this->user->target_expenses;
@@ -37,7 +43,13 @@ class DetailExpense extends Component
         } else {
             $this->color = 'text-success';
         }
+    }
 
+    #[On('target-expense-updated')]
+    public function render()
+    {
+        $this->calcuteExpenses();
+        
         return view('livewire.my-expense.detail-expense');
     }
 }
