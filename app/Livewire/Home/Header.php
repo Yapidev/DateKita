@@ -108,13 +108,19 @@ class Header extends Component
     {
         $validatedData = $this->validate();
 
-        Date::findOrFail($date_id)->update($validatedData);
+        $date = Date::findOrFail($date_id);
+
+        $date->update($validatedData);
 
         $this->resetModal();
 
         $this->closeModal();
 
-        $this->notify('Berhasil', 'Berhasil mengedit Kencan', 'success');
+        if ($date->wasChanged()) {
+            $this->notify('Berhasil', 'Berhasil mengedit Kencan', 'success');
+        } else {
+            $this->notify('Info', 'Tidak ada perubahan', 'info');
+        }
 
         $this->dispatch('new-date-updated');
     }

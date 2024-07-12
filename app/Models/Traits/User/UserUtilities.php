@@ -2,11 +2,14 @@
 
 namespace App\Models\Traits\User;
 
+use App\Traits\FormatCurrency;
 use Carbon\Carbon;
 
 trait UserUtilities
 
 {
+    use FormatCurrency;
+
     /**
      * Fungsi untuk menampilkan avatar user
      *
@@ -35,7 +38,13 @@ trait UserUtilities
 
         $expense = $this->expenses()->whereBetween('created_at', [$startOfMonth, $endOfMonth])->sum('amount');
 
-        return 'Rp. ' . number_format($expense, 0, ',', '.');
+        return $expense;
+    }
+
+    public function getFormattedCurrentMonthExpense(): string
+    {
+        $expense =  $this->getCurrentMonthExpense();
+        return $this->formatCurrency($expense);
     }
 
     /**
@@ -45,6 +54,6 @@ trait UserUtilities
      */
     public function getFormattedTargetExpenses(): string
     {
-        return 'Rp. ' . number_format($this->target_expenses, 0, ',', '.');
+        return $this->formatCurrency($this->target_expenses);
     }
 }

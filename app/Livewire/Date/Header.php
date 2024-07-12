@@ -107,15 +107,21 @@ class Header extends Component
 
         $validatedData['card_header_color'] = $this->card_color;
 
-        Expense::findOrFail($expense_id)->update($validatedData);
+        $expense = Expense::findOrFail($expense_id);
 
-        $this->dispatch('new-expense-updated');
+        $expense->update($validatedData);
 
         $this->closeModal();
 
         $this->resetModal();
 
-        $this->notify('Berhasil', 'Berhasil mengedit pengeluaran!', 'success');
+        if ($expense->wasChanged()) {
+            $this->notify('Berhasil', 'Berhasil mengedit pengeluaran!', 'success');
+        } else {
+            $this->notify('Info', 'Tidak ada perubahan', 'info');
+        }
+
+        $this->dispatch('new-expense-updated');
     }
 
     public function notify(string $title, string $message, string $icon)

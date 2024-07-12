@@ -109,6 +109,9 @@ class Profile extends Component
         }
 
         $this->user->update(['password' => bcrypt($this->newPassword)]);
+
+        $this->reset('oldPassword', 'newPassword', 'confirmPassword');
+
         $this->notify('Berhasil', 'Berhasil memperbarui kata sandi', 'success');
     }
 

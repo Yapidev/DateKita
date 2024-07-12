@@ -1,5 +1,5 @@
 <div class="col-xl-4 d-flex align-items-stretch">
-    <div class="card w-100">
+    <div class="card w-100 hover-img">
         <div class="card-header text-bg-{{ $expense->card_header_color }}">
             <h4 class="mb-0 text-white card-title">{{ $expense->title }}</h4>
         </div>

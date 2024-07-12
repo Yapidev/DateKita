@@ -1,7 +1,7 @@
 <div>
     <div id="note-full-container" class="note-has-grid row" wire:poll.visible>
         @forelse ($dates as $index => $item)
-            <div class="col-md-4 single-note-item all-category {{ $classes[$loop->index % count($classes)] }}">
+            <div class="col-md-4 single-note-item all-category hover-img {{ $classes[$loop->index % count($classes)] }}">
                 <div class="card card-body">
                     <span class="side-stick"></span>
                     <h6 class="note-title text-truncate w-75 mb-0" data-noteHeading="Book a Ticket for Movie">

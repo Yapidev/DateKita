@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('my-expense') }}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('my-expense') }}" aria-expanded="false" wire:navigate>
                         <span>
                             <i class="ti ti-receipt-2"></i>
                         </span>

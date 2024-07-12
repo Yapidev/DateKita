@@ -47,6 +47,10 @@
         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico"
             alt="loader" class="lds-ripple img-fluid" />
     </div>
+    <div class="preloader">
+        <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico"
+            alt="loader" class="lds-ripple img-fluid" />
+    </div>
 
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
@@ -71,16 +75,19 @@
         </div>
     </div>
 
-    <!--  Import Js Files -->
+    <!-- Import Js Files -->
     <script data-navigate-once src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script data-navigate-once src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <!--  core files -->
+    <!-- core files -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.init.js') }}"></script>
     <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <!--  current page js files -->
+    <!-- current page js files -->
     <script src="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+
+    <!-- Datatable js file -->
+    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 
     {{-- STACK SCRIPT --}}
     @stack('script')

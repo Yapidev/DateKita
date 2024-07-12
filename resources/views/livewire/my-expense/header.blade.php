@@ -20,7 +20,7 @@
     {{-- Header --}}
 
     {{-- Add Targer Expense Modal --}}
-    <div class="modal fade" id="addTargetExpense" tabindex="-1" role="dialog" aria-labelledby="addExpenseModalTitle"
+    <div class="modal fade animated pulse" id="addTargetExpense" tabindex="-1" role="dialog" aria-labelledby="addExpenseModalTitle"
         aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
@@ -55,7 +55,7 @@
                     <div class="d-flex gap-6">
                         <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"
                             wire:click='resetModal'>Batal</button>
-                        <button id="btn-n-add" class="btn btn-primary" wire:click='addTargetExpense'>Simpan</button>
+                        <button id="btn-n-add" class="btn btn-primary" wire:click='addTargetExpense' wire:loading.delay.attr='disabled' wire:target='addTargetExpense'>Simpan</button>
                     </div>
                 </div>
             </div>

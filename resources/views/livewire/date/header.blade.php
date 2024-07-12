@@ -27,7 +27,7 @@
     {{-- Header Content --}}
 
     {{-- Add Expense Modal --}}
-    <div class="modal fade" id="addExpenseModal" tabindex="-1" role="dialog" aria-labelledby="addExpenseModalTitle"
+    <div class="modal fade animated pulse" id="addExpenseModal" tabindex="-1" role="dialog" aria-labelledby="addExpenseModalTitle"
         aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">

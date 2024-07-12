@@ -24,7 +24,7 @@
     {{-- Header Content --}}
 
     {{-- Add Dates Modal --}}
-    <div class="modal fade" id="addDateModal" tabindex="-1" role="dialog" aria-labelledby="addnotesmodalTitle"
+    <div class="modal fade animated pulse" id="addDateModal" tabindex="-1" role="dialog" aria-labelledby="addnotesmodalTitle"
         aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
