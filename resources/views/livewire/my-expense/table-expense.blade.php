@@ -25,7 +25,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}.</td>
                                 <td>{{ $data->title }}</td>
-                                <td>{{ $data->amount }}</td>
+                                <td>{{ $data->formatted_amount }}</td>
                                 <td max-length="20" data-bs-toggle="tooltip" title="{{ $data->description }}">
                                     {{ Str::limit($data->description, 20) }}</td>
                             </tr>
