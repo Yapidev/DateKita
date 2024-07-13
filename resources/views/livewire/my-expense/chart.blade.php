@@ -32,9 +32,6 @@
                         ],
                     },
                     yaxis: {
-                        title: {
-                            text: 'Pengeluaran'
-                        },
                         labels: {
                             formatter: function(value) {
                                 return 'Rp. ' + value.toLocaleString('id-ID');
