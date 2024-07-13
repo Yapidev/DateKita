@@ -60,6 +60,8 @@ class Header extends Component
     {
         $this->resetModal();
 
+        $this->date_time = Carbon::now()->format('Y-m-d');
+
         $this->modal_title = 'Tambah Kencan';
 
         $this->openModal();
