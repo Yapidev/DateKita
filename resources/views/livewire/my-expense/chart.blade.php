@@ -26,6 +26,9 @@
                             show: false,
                         },
                     },
+                    dataLabels: {
+                        enabled: false
+                    },
                     xaxis: {
                         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov',
                             'Des'
