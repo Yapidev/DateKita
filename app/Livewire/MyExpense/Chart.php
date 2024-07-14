@@ -22,7 +22,7 @@ class Chart extends Component
     {
         $expenses = $this->user->expenses()
             ->select(DB::raw('SUM(expenses.amount) as total, MONTH(dates.date_time) as month, YEAR(dates.date_time) as year'))
-            ->join('dates', 'expenses.date_id', '=', 'date.id')
+            ->join('dates', 'expenses.date_id', '=', 'dates.id')
             ->whereYear('dates.date_time', Carbon::now()->year)
             ->groupBy(DB::raw('YEAR(dates.date_time), MONTH(dates.date_time)'))
             ->get();
