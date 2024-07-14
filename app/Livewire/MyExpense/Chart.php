@@ -21,7 +21,7 @@ class Chart extends Component
     public function calculateMonthlyExpenses()
     {
         $expenses = $this->user->expenses()
-            ->select(DB::raw('SUM(expenses.amount) as total, MONTH(date.date_time) as month, YEAR(date.date_time) as year'))
+            ->select(DB::raw('SUM(expenses.amount) as total, MONTH(dates.date_time) as month, YEAR(dates.date_time) as year'))
             ->join('dates', 'expenses.date_id', '=', 'date.id')
             ->whereYear('dates.date_time', Carbon::now()->year)
             ->groupBy(DB::raw('YEAR(dates.date_time), MONTH(dates.date_time)'))
