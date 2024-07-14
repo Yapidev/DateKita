@@ -17,9 +17,9 @@ trait GetGreeting
 
         if ($currentHour < 10) {
             return 'Selamat Pagi ' . $user->name . '!';
-        } elseif ($currentHour < 12) {
-            return 'Selamat Siang ' . $user->name . '!';
         } elseif ($currentHour < 15) {
+            return 'Selamat Siang ' . $user->name . '!';
+        } elseif ($currentHour < 18) {
             return 'Selamat Sore ' . $user->name . '!';
         } else {
             return 'Selamat Malam ' . $user->name . '!';
