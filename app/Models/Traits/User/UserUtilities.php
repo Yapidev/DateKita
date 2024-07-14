@@ -38,7 +38,7 @@ trait UserUtilities
         $endOfMonth = Carbon::now()->endOfMonth();
 
         $expense = $this->expenses()
-            ->whereHas('dates', function (Builder $query) use ($startOfMonth, $endOfMonth) {
+            ->whereHas('date', function (Builder $query) use ($startOfMonth, $endOfMonth) {
                 $query->whereBetween('date_time', [$startOfMonth, $endOfMonth]);
             })
             ->sum('amount');
