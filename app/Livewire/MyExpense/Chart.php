@@ -24,7 +24,7 @@ class Chart extends Component
             ->select(DB::raw('SUM(expenses.amount) as total, MONTH(date.date_time) as month, YEAR(date.date_time) as year'))
             ->join('dates', 'expenses.date_id', '=', 'date.id')
             ->whereYear('dates.date_time', Carbon::now()->year)
-            ->groupBy(DB::raw('YEAR(date.date_time), MONTH(date.date_time)'))
+            ->groupBy(DB::raw('YEAR(dates.date_time), MONTH(dates.date_time)'))
             ->get();
 
         // Initialize all months with 0
