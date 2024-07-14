@@ -10,9 +10,8 @@
                         {{ \Carbon\Carbon::parse($item->date_time)->translatedFormat('l, d F Y') }}
                     </p>
                     <div class="note-content">
-                        <p class="note-inner-content"
-                            data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
-                            {{ $item->description ? Str::limit($item->description, 30, '...') : 'Tidak ada deskripsi' }}
+                        <p class="note-inner-content" data-bs-toggle="tooltip" title="{{ $item->description }}">
+                            {{ Str::limit($item->description, 30, '...') }}
                         </p>
                     </div>
                     <div class="btn-group col-7 col-xl-8">
