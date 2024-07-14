@@ -15,11 +15,11 @@ trait GetGreeting
     {
         $currentHour = Carbon::now()->hour;
 
-        if ($currentHour < 4) {
+        if ($currentHour < 10) {
             return 'Selamat Pagi ' . $user->name . '!';
-        } elseif ($currentHour < 14) {
+        } elseif ($currentHour < 12) {
             return 'Selamat Siang ' . $user->name . '!';
-        } elseif ($currentHour < 18) {
+        } elseif ($currentHour < 15) {
             return 'Selamat Sore ' . $user->name . '!';
         } else {
             return 'Selamat Malam ' . $user->name . '!';
