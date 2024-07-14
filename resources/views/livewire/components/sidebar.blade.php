@@ -2,7 +2,7 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
             <a href="{{ route('home') }}" class="text-nowrap logo-img" wire:navigate>
-                <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg"
+                <img src="{{ asset('assets/images/dark-logo.svg') }}"
                     class="dark-logo" width="180" alt="" />
                 <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg"
                     class="light-logo" width="180" alt="" />
