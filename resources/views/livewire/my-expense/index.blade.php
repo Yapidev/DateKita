@@ -14,5 +14,4 @@
     {{-- Card Table List Pengeluaran --}}
     <livewire:my-expense.table-expense :$user />
     {{-- Card Table List Pengeluaran --}}
-
 </div>

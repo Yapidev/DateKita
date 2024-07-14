@@ -75,18 +75,25 @@
         </div>
     </div>
 
-    <!-- Import Js Files -->
+    <!-- Jquery and Bootstrap JS Files -->
     <script data-navigate-once src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script data-navigate-once src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- core files -->
+
+    <!-- Core JS File -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.init.js') }}"></script>
     <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <!-- current page js files -->
+
+    <!-- Sweetalert JS Files -->
     <script src="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 
-    <!-- Datatable js file -->
+    <!-- Apex Chart JS File -->
+    <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/js/apex-chart/apex.area.init.js') }}"></script>
+
+    <!-- Datatable JS File -->
     <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 
     {{-- STACK SCRIPT --}}
