@@ -9,7 +9,7 @@ use Livewire\Component;
 class ListDate extends Component
 {
     public array $classes;
-    public int $perPage = 3;
+    public int $perPage = 10;
 
     public function mount()
     {
@@ -22,7 +22,7 @@ class ListDate extends Component
 
     public function loadMore()
     {
-        $this->perPage += 3;
+        $this->perPage += 10;
     }
 
     #[On('new-date-created')]
