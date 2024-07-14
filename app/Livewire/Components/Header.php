@@ -8,8 +8,7 @@ use Livewire\Component;
 
 class Header extends Component
 {
-    #[On('avatar-updated')]
-    #[On('bio-updated')]
+    #[On('profile-updated')]
     public function render()
     {
         return view('livewire.components.header', [

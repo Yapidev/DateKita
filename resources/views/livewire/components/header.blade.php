@@ -8,7 +8,7 @@
                     </a>
                 </li>
             </ul>
-            <div class="d-block d-lg-none">
+            <div class="d-block d-lg-none" wire:ignore>
                 <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg"
                     class="dark-logo" width="180" alt="" />
                 <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg"

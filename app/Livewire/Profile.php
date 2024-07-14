@@ -62,21 +62,23 @@ class Profile extends Component
 
         $this->notify('Berhasil', 'Berhasil update bio', 'success');
 
-        $this->dispatch('bio-updated');
+        $this->dispatch('profile-updated');
     }
 
     public function updateAvatar()
     {
-        $this->checkAndDeleteCurrentAvatar();
+        if ($this->avatar) {
+            $this->checkAndDeleteCurrentAvatar();
 
-        $path = $this->avatar->store('users-avatar', 'public');
-        $avatarName = basename($path);
+            $path = $this->avatar->store('users-avatar', 'public');
+            $avatarName = basename($path);
 
-        $this->user->update(['avatar' => $avatarName]);
+            $this->user->update(['avatar' => $avatarName]);
+        }
 
         $this->notify('Berhasil', 'Foto profil sudah diperbarui', 'success');
 
-        $this->dispatch('avatar-updated');
+        $this->dispatch('profile-updated');
     }
 
     public function deleteAvatar()
@@ -85,7 +87,7 @@ class Profile extends Component
 
         $this->notify('Berhasil', 'Foto profil sudah dihapus', 'success');
 
-        $this->dispatch('avatar-updated');
+        $this->dispatch('profile-updated');
     }
 
     public function updatePassword()
