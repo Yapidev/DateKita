@@ -4,6 +4,7 @@ namespace App\Models\Traits\User;
 
 use App\Traits\FormatCurrency;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 
 trait UserUtilities
 
@@ -29,14 +30,18 @@ trait UserUtilities
     /**
      * Fungsi untuk mendapatkan total pengeluaran user di bulan ini
      *
-     * @return string
+     * @return int
      */
-    public function getCurrentMonthExpense(): string
+    public function getCurrentMonthExpense(): int
     {
         $startOfMonth = Carbon::now()->startOfMonth();
         $endOfMonth = Carbon::now()->endOfMonth();
 
-        $expense = $this->expenses()->whereBetween('created_at', [$startOfMonth, $endOfMonth])->sum('amount');
+        $expense = $this->expenses()
+            ->whereHas('dates', function (Builder $query) use ($startOfMonth, $endOfMonth) {
+                $query->whereBetween('date_time', [$startOfMonth, $endOfMonth]);
+            })
+            ->sum('amount');
 
         return $expense;
     }
