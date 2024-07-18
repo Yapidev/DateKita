@@ -42,16 +42,6 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico"
-            alt="loader" class="lds-ripple img-fluid" />
-    </div>
-    <div class="preloader">
-        <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico"
-            alt="loader" class="lds-ripple img-fluid" />
-    </div>
-
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
@@ -89,9 +79,9 @@
     <script src="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 
     <!-- Apex Chart JS File -->
-    <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/js/apex-chart/apex.area.init.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/js/apex-chart/apex.area.init.js') }}"></script>
 
     <!-- Datatable JS File -->
     <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>

@@ -13,7 +13,7 @@ class ListPengeluaran extends Component
     public function render()
     {
         return view('livewire.date.list-pengeluaran', [
-            'expense' => $this->expense
+            'expense' => $this->expense->sortByDesc('created_at')
         ]);
     }
 
