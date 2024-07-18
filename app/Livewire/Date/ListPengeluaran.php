@@ -3,7 +3,6 @@
 namespace App\Livewire\Date;
 
 use App\Models\Expense;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ListPengeluaran extends Component
@@ -13,7 +12,7 @@ class ListPengeluaran extends Component
     public function render()
     {
         return view('livewire.date.list-pengeluaran', [
-            'expense' => $this->expense->sortByDesc('created_at')
+            'expense' => $this->expense->latest(),
         ]);
     }
 
