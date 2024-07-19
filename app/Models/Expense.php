@@ -13,14 +13,4 @@ class Expense extends Model
     use HasFactory, ExpensesRelations, ExpensesAccessors;
 
     protected $guarded = ['id'];
-
-    /**
-     * Relasi ke model date
-     *
-     * @return BelongsTo
-     */
-    public function date(): BelongsTo
-    {
-        return $this->belongsTo(Date::class);
-    }
 }

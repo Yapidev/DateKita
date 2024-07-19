@@ -8,14 +8,18 @@
     <div class="card">
         <div class="card-body">
             <div class="mb-2">
-                <div class="d-xl-flex align-items-center justify-content-between">
-                    <div class="mb-2">
-                        <h5>Tabel List Pengeluaran</h5>
-                    </div>
-                    <div class="mb-2">
-                        <input type="search" class="form-control" placeholder="Cari data berdasarkan kolom..">
-                    </div>
+                <div class="mb-2">
+                    <h5 class="mb-0">Tabel List Pengeluaran</h5>
                 </div>
+                {{-- <div class="input-group">
+                    <button class="btn bg-info-subtle text-info  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Urutkan</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item cursor-pointer">Terbaru <i class="ti ti-check"></i></a>
+                        <a class="dropdown-item cursor-pointer">Terlama</a>
+                    </div>
+                    <input type="search" class="form-control" placeholder="Cari data berdasarkan kolom..">
+                </div> --}}
             </div>
             <div class="table-responsive">
                 <table id="expense-list" class="table border table-bordered text-nowrap">
@@ -31,7 +35,7 @@
                     <tbody id="data-siswa-container">
                         @forelse ($expenses as $data)
                             <tr>
-                                <td>{{ $loop->iteration }}.</td>
+                                <td>{{ $expenses->firstItem() + $loop->index }}.</td>
                                 <td>{{ $data->title }}</td>
                                 <td>{{ $data->formatted_amount }}</td>
                                 <td>{{ $data->date->date_time }}</td>
@@ -43,7 +47,7 @@
                     </tbody>
                 </table>
             </div>
-            {{ $expenses->links('pagination::tailwind') }}
+            {{ $expenses->links('livewire::bootstrap', data: ['scrollTo' => false]) }}
         </div>
     </div>
     {{-- Table Expense List --}}
