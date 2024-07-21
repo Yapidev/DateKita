@@ -39,7 +39,7 @@
                                 <td>{{ $data->title }}</td>
                                 <td>{{ $data->formatted_amount }}</td>
                                 <td>{{ $data->date->date_time }}</td>
-                                <td max-length="20" data-bs-toggle="tooltip" title="{{ $data->description }}">
+                                <td wire:ignore max-length="20" data-toggle="tooltip" title="{{ $data->description }}">
                                     {{ Str::limit($data->description, 20) }}</td>
                             </tr>
                         @empty
@@ -51,4 +51,12 @@
         </div>
     </div>
     {{-- Table Expense List --}}
+
+    {{-- Script --}}
+    @script
+        <script>
+            $('[data-toggle="tooltip"]').tooltip()
+        </script>
+    @endscript
+    {{-- Script --}}
 </div>
