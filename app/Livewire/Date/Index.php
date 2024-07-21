@@ -16,7 +16,13 @@ class Index extends Component
     public function render()
     {
         $date = Date::query()
-            ->with(['expenses.payer', 'ratings'])
+            ->with(
+                [
+                    'expenses' => fn ($query) => $query->latest(),
+                    'expenses.payer',
+                    'ratings'
+                ]
+            )
             ->findOrFail($this->dateId);
 
         return view('livewire.date.index', [

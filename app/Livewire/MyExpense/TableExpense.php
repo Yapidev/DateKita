@@ -11,10 +11,11 @@ class TableExpense extends Component
 
     public $user;
 
-    public function getExpenses($user){
+    public function getExpenses($user)
+    {
         $expenses = $user->expenses()
-        ->with('date')
-        ->paginate(10);
+            ->with('date')
+            ->paginate(10);
 
         return $expenses;
     }
