@@ -31,6 +31,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('note') }}" aria-expanded="false" wire:navigate>
+                        <span>
+                            <i class="ti ti-notebook"></i>
+                        </span>
+                        <span class="hide-menu">Note</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ Auth::user()->id == 1 ? '/chat/2' : 'chat/1' }}"
                         aria-expanded="false">
                         <span>

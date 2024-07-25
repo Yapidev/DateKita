@@ -6,6 +6,9 @@
                 <div class="col-9">
                     <h4 class="fw-semibold mb-8">Pengeluaranku</h4>
                     <p class="mb-0">Ini adalah halaman yang berisi detail pengeluaran anda.</p>
+                    <a href="{{ route('home') }}" class="btn btn-warning my-2 me-2" wire:navigate>
+                        Kembali
+                    </a>
                     <button class="btn btn-primary my-2 text-capitalize" @click="$dispatch('open-modal')">
                         Atur target pengeluaran</button>
                 </div>

@@ -1,11 +1,16 @@
 <?php
 
-use App\Http\Controllers\DateController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    DateController,
+    ExpenseController,
+    HomeController,
+    ProfileController
+};
+use App\Livewire\Note\Index;
+use Illuminate\Support\Facades\{
+    Auth,
+    Route
+};
 
 Route::get('/', function () {
     return to_route('login');
@@ -23,5 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::resource('date', DateController::class)->only('show');
     Route::get('my-expense', [ExpenseController::class, 'index'])->name('my-expense');
+    Route::get('note', Index::class)->name('note');
 });
-

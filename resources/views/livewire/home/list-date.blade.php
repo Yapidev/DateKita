@@ -41,8 +41,10 @@
         @endforelse
 
         {{-- Infinite Scroll --}}
-        <div x-intersect.half="$wire.loadMore()">
-        </div>
+        @if ($datesCount >= $perPage)
+            <div x-intersect.half="$wire.loadMore()">
+            </div>
+        @endif
         {{-- Infinite Scroll --}}
     </div>
     @script

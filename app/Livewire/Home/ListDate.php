@@ -34,8 +34,11 @@ class ListDate extends Component
             ->take($this->perPage)
             ->get();
 
+        $datesCount = Date::count();
+
         return view('livewire.home.list-date', [
-            'dates' => $dates
+            'dates' => $dates,
+            'datesCount' => $datesCount
         ]);
     }
 
