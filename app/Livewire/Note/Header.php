@@ -31,6 +31,7 @@ class Header extends Component
 
     public function create()
     {
+        $this->reset();
         $this->modal_title = 'Tambah Note';
         $this->dispatch('open-modal')->self();
     }
