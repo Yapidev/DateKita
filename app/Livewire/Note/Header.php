@@ -32,7 +32,11 @@ class Header extends Component
     public function create()
     {
         $this->reset();
+
+        $this->resetValidation();
+
         $this->modal_title = 'Tambah Note';
+
         $this->dispatch('open-modal')->self();
     }
 
@@ -54,6 +58,8 @@ class Header extends Component
     #[On('edit-note')]
     public function edit(Note $note)
     {
+        $this->resetValidation();
+
         $this->modal_title = "Edit Note berjudul " . $note->title;
 
         $this->note = $note;
