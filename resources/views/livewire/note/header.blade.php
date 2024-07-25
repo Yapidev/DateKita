@@ -74,7 +74,7 @@
                         </div>
                         <div class="modal-footer">
                             <div class="d-flex gap-6">
-                                <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal">Batal</button>
+                                <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal" type="button">Batal</button>
                                 <button type="submit" id="btn-n-add" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
