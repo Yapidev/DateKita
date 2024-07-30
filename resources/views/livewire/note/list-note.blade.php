@@ -22,6 +22,7 @@
                                 {{ $note->isFavoritedBy(auth()->id()) ? 'text-warning' : '' }}
                             "></i>
                         </a>
+                        <span>{{ $note->favorites->count() }}</span>
                         @if ($note->user_id == auth()->id())
                             <a wire:ignore class="cursor-pointer link text-warning ms-2"
                                 @click="$dispatch('edit-note', {note: {{ $note }}})">
