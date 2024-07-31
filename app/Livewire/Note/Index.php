@@ -17,7 +17,7 @@ class Index extends Component
 
     public function render()
     {
-        $notes = Note::withFavoritesFirst()
+        $notes = Note::query()
             ->with(['author', 'favorites'])
             ->withCount('favorites')
             ->latest()
