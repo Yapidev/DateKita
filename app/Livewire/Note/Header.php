@@ -3,6 +3,7 @@
 namespace App\Livewire\Note;
 
 use App\Models\Note;
+use Carbon\Carbon;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -12,6 +13,9 @@ class Header extends Component
     public $modal_title;
 
     public Note $note;
+
+    #[Validate('required', message: 'Tanggal harus di isi')]
+    public $created_at;
 
     #[Validate('required', message: 'Judul note harus di isi')]
     public $title;
@@ -35,6 +39,8 @@ class Header extends Component
 
         $this->resetValidation();
 
+        $this->created_at = Carbon::now()->format('Y-m-d');
+
         $this->modal_title = 'Tambah Note';
 
         $this->dispatch('open-modal')->self();
@@ -43,6 +49,8 @@ class Header extends Component
     public function store()
     {
         $data = $this->validate();
+
+        $data['created_at'] = Carbon::createFromFormat('Y-m-d', $this->created_at)->timestamp;
 
         auth()->user()->notes()->create($data);
 
@@ -62,6 +70,8 @@ class Header extends Component
 
         $this->modal_title = "Edit Note berjudul " . $note->title;
 
+        $this->created_at = $note->created_at->format('Y-m-d');
+
         $this->note = $note;
 
         $this->title = $note->title;
@@ -76,6 +86,8 @@ class Header extends Component
         $data = $this->validate();
 
         $data['user_id'] = auth()->id();
+
+        $data['created_at'] = Carbon::createFromFormat('Y-m-d', $this->created_at)->timestamp;
 
         $note->update($data);
 

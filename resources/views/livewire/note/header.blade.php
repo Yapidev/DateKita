@@ -44,6 +44,19 @@
                                 <div class="notes-content">
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
+                                            <div class="note-created_at">
+                                                <label class="form-label">Tanggal</label>
+                                                <input type="date" id="created_at"
+                                                    class="form-control @error('created_at') is-invalid @enderror"
+                                                    placeholder="Isi deskripsi pengeluaran" wire:model.blur='created_at' />
+                                                @error('created_at')
+                                                    <div class="invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
                                             <div class="note-title">
                                                 <label class="form-label">Judul</label>
                                                 <input type="text" id="title"
