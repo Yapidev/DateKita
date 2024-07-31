@@ -19,9 +19,14 @@ class Index extends Component
     {
         $notes = Note::withFavoritesFirst()
             ->with(['author', 'favorites'])
+            ->withCount('favorites')
             ->latest()
             ->take($this->perPage)
-            ->get();
+            ->get()
+            ->map(function ($note) {
+                $note->is_favorited = $note->favorites->contains('user_id', auth()->id());
+                return $note;
+            });
 
         $notesCount = Note::count();
 

@@ -19,10 +19,10 @@
                         <a class="cursor-pointer link me-1" wire:click='toggleFavorite({{ $note }})'>
                             <i
                                 class="ti ti-star fs-4 favourite-note
-                                {{ $note->isFavoritedBy(auth()->id()) ? 'text-warning' : '' }}
+                                @if ($note->is_favorited) text-warning @endif
                             "></i>
                         </a>
-                        <span>{{ $note->favorites->count() }}</span>
+                        <span>{{ $note->favorites_count }}</span>
                         @if ($note->user_id == auth()->id())
                             <a wire:ignore class="cursor-pointer link text-warning ms-2"
                                 @click="$dispatch('edit-note', {note: {{ $note }}})">

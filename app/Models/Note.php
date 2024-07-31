@@ -34,17 +34,6 @@ class Note extends Model
     }
 
     /**
-     * isFavoritedBy
-     *
-     * @param  mixed $userId
-     * @return void
-     */
-    public function isFavoritedBy($userId)
-    {
-        return $this->favorites()->where('user_id', $userId)->exists();
-    }
-
-    /**
      * scopeWithFavoritesFirst
      *
      * @param  mixed $query
@@ -59,8 +48,8 @@ class Note extends Model
                 ->where('favorites.favoritable_type', '=', Note::class)
                 ->where('favorites.user_id', '=', $userId);
         })
-        ->select('notes.*')
-        ->orderByRaw('CASE WHEN favorites.user_id IS NOT NULL THEN 0 ELSE 1 END')
-        ->orderBy('notes.created_at', 'desc');
+            ->select('notes.*')
+            ->orderByRaw('CASE WHEN favorites.user_id IS NOT NULL THEN 0 ELSE 1 END')
+            ->orderBy('notes.created_at', 'desc');
     }
 }
