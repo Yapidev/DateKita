@@ -1,7 +1,6 @@
 <div>
     <div class="note-has-grid row">
         @foreach ($notes as $index => $note)
-        @dump($note->comments_count)
             <div class="col-md-4 single-note-item all-category {{ $classes[$loop->index % count($classes)] }}"
                 wire:key='{{ $note->id }}'>
                 <div class="card card-body">
