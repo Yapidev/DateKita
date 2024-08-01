@@ -24,7 +24,8 @@
                             <span>{{ $note->favorites_count }}</span>
                         </a>
                         <a wire:ignore class="cursor-pointer link" @click="$dispatch('add-comment', {note: {{ $note }}})">
-                            <i class="ti ti-message-plus fs-6"></i>
+                            <i class="ti ti-message-plus fs-6 me-2"></i>
+                            <span>{{ $note->comments_count }}</span>
                         </a>
                         @if ($note->user_id == auth()->id())
                             <a wire:ignore class="cursor-pointer link text-warning"

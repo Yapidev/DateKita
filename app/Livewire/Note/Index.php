@@ -20,7 +20,7 @@ class Index extends Component
         // Mengambil catatan dengan semua relasi dan penghitungan yang diperlukan
         $notesQuery = Note::query()
             ->with(['author', 'favorites', 'comments.user'])
-            ->withCount('favorites')
+            ->withCount(['favorites', 'comments'])
             ->latest();
 
         // Mengambil jumlah total catatan
