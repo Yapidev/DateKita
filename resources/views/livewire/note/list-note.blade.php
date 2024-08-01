@@ -1,6 +1,7 @@
 <div>
     <div class="note-has-grid row">
         @foreach ($notes as $index => $note)
+        @dump($note->comments_count)
             <div class="col-md-4 single-note-item all-category {{ $classes[$loop->index % count($classes)] }}"
                 wire:key='{{ $note->id }}'>
                 <div class="card card-body">
@@ -23,7 +24,7 @@
                             "></i>
                             <span>{{ $note->favorites_count }}</span>
                         </a>
-                        <a wire:ignore class="cursor-pointer link" @click="$dispatch('add-comment', {note: {{ $note }}})">
+                        <a class="cursor-pointer link" @click="$dispatch('add-comment', {note: {{ $note }}})">
                             <i class="ti ti-message-plus fs-6 me-2"></i>
                             <span>{{ $note->comments_count }}</span>
                         </a>

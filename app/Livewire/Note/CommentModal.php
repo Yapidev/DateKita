@@ -4,7 +4,6 @@ namespace App\Livewire\Note;
 
 use App\Models\Note;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Reactive;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -41,5 +40,7 @@ class CommentModal extends Component
         $this->note->comments()->create($data);
 
         $this->reset('content');
+
+        $this->dispatch('comment-stored');
     }
 }

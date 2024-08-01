@@ -15,6 +15,7 @@ class Index extends Component
         $this->perPage += 9;
     }
 
+    #[On('comment-stored')]
     public function render()
     {
         // Mengambil catatan dengan semua relasi dan penghitungan yang diperlukan
