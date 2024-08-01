@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Traits\Expenses;
+namespace App\Models\Traits\Expense;
 
-trait ExpensesAccessors
+trait ExpenseAccessors
 
 {
     /**

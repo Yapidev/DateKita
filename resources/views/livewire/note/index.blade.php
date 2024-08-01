@@ -7,8 +7,11 @@
     <livewire:note.list-note :notes="$notes" @saved="$refresh" />
     {{-- List Note --}}
 
-    {{-- Infinite Scroll --}}
+    {{-- Comment Modal --}}
+    <livewire:note.comment-modal />
+    {{-- Comment Modal --}}
 
+    {{-- Infinite Scroll --}}
     @if ($notesCount >= $perPage)
         <div x-intersect.half="$wire.loadMore()">
         </div>

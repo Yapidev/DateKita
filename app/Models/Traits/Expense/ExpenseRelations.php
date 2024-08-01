@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Traits\Expenses;
+namespace App\Models\Traits\Expense;
 
 use App\Models\Date;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-trait ExpensesRelations
+trait ExpenseRelations
 
 {
     /**

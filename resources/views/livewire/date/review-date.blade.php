@@ -72,6 +72,7 @@
             </div>
         </div>
         {{-- Rating Form --}}
+        
         {{-- Show Rating --}}
         <div class="col-xl-8">
             <div class="card">

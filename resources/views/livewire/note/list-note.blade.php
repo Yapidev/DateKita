@@ -15,26 +15,29 @@
                             {{ $note->description }}
                         </p>
                     </div>
-                    <div class="d-flex align-items-center">
-                        <a class="cursor-pointer link me-1" wire:click='toggleFavorite({{ $note }})'>
+                    <div class="d-flex align-items-center gap-3">
+                        <a class="cursor-pointer link" wire:click='toggleFavorite({{ $note }})'>
                             <i
-                                class="ti ti-star fs-4 favourite-note
+                                class="ti ti-star fs-6 favourite-note me-2
                                 @if ($note->is_favorited) text-warning @endif
                             "></i>
+                            <span>{{ $note->favorites_count }}</span>
                         </a>
-                        <span>{{ $note->favorites_count }}</span>
+                        <a wire:ignore class="cursor-pointer link" @click="$dispatch('add-comment', {note: {{ $note }}})">
+                            <i class="ti ti-message-plus fs-6"></i>
+                        </a>
                         @if ($note->user_id == auth()->id())
-                            <a wire:ignore class="cursor-pointer link text-warning ms-2"
+                            <a wire:ignore class="cursor-pointer link text-warning"
                                 @click="$dispatch('edit-note', {note: {{ $note }}})">
-                                <i class="ti ti-edit fs-4 edit-note"></i>
+                                <i class="ti ti-edit fs-6 edit-note"></i>
                             </a>
-                            <a wire:ignore class="cursor-pointer link text-danger ms-2"
+                            <a wire:ignore class="cursor-pointer link text-danger"
                                 @click="$dispatch('delete-confirmation',{
                                 title: 'Apakah anda yakin?',
                                 message: 'Note berjudul {{ $note->title }} akan terhapus',
                                 note: {{ $note }}
                             })">
-                                <i class="ti ti-trash fs-4 remove-note"></i>
+                                <i class="ti ti-trash fs-6 remove-note"></i>
                             </a>
                         @endif
                     </div>

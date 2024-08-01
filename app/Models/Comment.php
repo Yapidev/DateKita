@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Note\NoteRelations;
-use App\Models\Traits\Note\NoteUtilities;
+use App\Models\Traits\Comment\CommentRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Note extends Model
+class Comment extends Model
 {
-    use HasFactory, NoteRelations, NoteUtilities;
+    use HasFactory, CommentRelations;
 
     protected $guarded = ['id'];
 }

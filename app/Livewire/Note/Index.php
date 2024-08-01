@@ -17,19 +17,24 @@ class Index extends Component
 
     public function render()
     {
-        $notes = Note::query()
-            ->with(['author', 'favorites'])
+        // Mengambil catatan dengan semua relasi dan penghitungan yang diperlukan
+        $notesQuery = Note::query()
+            ->with(['author', 'favorites', 'comments.user'])
             ->withCount('favorites')
-            ->latest()
-            ->take($this->perPage)
+            ->latest();
+
+        // Mengambil jumlah total catatan
+        $notesCount = $notesQuery->count();
+
+        // Mengambil catatan sesuai dengan jumlah per halaman dan menambahkan atribut is_favorited
+        $notes = $notesQuery->take($this->perPage)
             ->get()
             ->map(function ($note) {
                 $note->is_favorited = $note->favorites->contains('user_id', auth()->id());
                 return $note;
             });
 
-        $notesCount = Note::count();
-
+        // Mengembalikan view dengan data catatan dan jumlah catatan
         return view('livewire.note.index', [
             'notes' => $notes,
             'notesCount' => $notesCount
