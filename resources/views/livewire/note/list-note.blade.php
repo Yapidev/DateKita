@@ -19,11 +19,12 @@
                         <a class="cursor-pointer link" wire:click='toggleFavorite({{ $note }})'>
                             <i
                                 class="ti ti-star fs-6 favourite-note me-2
-                                @if ($note->is_favorited) text-warning @endif
-                            "></i>
+                                @if ($note->is_favorited) text-warning @endif">
+                            </i>
                             <span>{{ $note->favorites_count }}</span>
                         </a>
-                        <a class="cursor-pointer link" @click="$dispatch('add-comment', {note: {{ $note }}})">
+                        <a wire:ignore.self class="cursor-pointer link"
+                            @click="$dispatch('add-comment', {note: {{ $note }}})">
                             <i class="ti ti-message-plus fs-6 me-2"></i>
                             <span>{{ $note->comments_count }}</span>
                         </a>

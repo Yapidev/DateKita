@@ -10,12 +10,13 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="chat-list chat active-chat">
+                    <div class="chat-list chat active-chat" id="comment-list">
                         @if ($note != null)
                             @foreach ($note->comments as $comment)
                                 @if ($comment->user_id == auth()->id())
                                     {{-- Komentar User yang sedang login --}}
-                                    <div class="hstack gap-3 align-items-start justify-content-end mb-7" wire:poll.visible>
+                                    <div class="hstack gap-3 align-items-start justify-content-end {{ $loop->last ? 'mb-0' : 'mb-7' }}"
+                                        wire:poll.visible>
                                         <div class="text-end">
                                             <h6 class="fs-2 text-muted">{{ $comment->created_at->diffForHumans() }}</h6>
                                             <div class="p-2 bg-info-subtle text-dark rounded-1 d-inline-block fs-3">
@@ -26,7 +27,8 @@
                                     {{-- Komentar User yang sedang login --}}
                                 @else
                                     {{-- Komentar User Lain --}}
-                                    <div class="hstack gap-3 align-items-start justify-content-start mb-7" wire:poll.visible>
+                                    <div class="hstack gap-3 align-items-start justify-content-start {{ $loop->last ? 'mb-0' : 'mb-7' }}"
+                                        wire:poll.visible>
                                         <img src="{{ asset($comment->user->showAvatar()) }}" alt="user"
                                             class="rounded-circle" width="40" height="40"
                                             style="object-fit: cover">
@@ -47,7 +49,8 @@
                     <div class="d-flex gap-6 w-100">
                         <input type="text" class="form-control @error('content') is-invalid @enderror"
                             placeholder="Tulis komentar anda" wire:model.blur='content'>
-                        <button type="button" id="btn-n-add" class="btn btn-primary hstack gap-6" wire:click='store'>
+                        <button type="button" id="btn-n-add" class="btn btn-primary hstack gap-6" wire:click='store'
+                            wire:loading.delay.attr='disabled'>
                             <i class="ti ti-send fs-4"></i>
                             Simpan
                         </button>
@@ -66,6 +69,15 @@
 
             $wire.on('open-modal', () => {
                 $('#comment-modal').modal('show');
+            });
+
+            $wire.on('comment-stored', () => {
+                // Variable modal dan list comment
+                let modal = $('#comment-modal');
+                let list = document.getElementById('comment-list');
+
+                // Mengubah list comment
+                modal.find('.modal-body').scrollTop(list.scrollHeight);
             });
         </script>
     @endscript
