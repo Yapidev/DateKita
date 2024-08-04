@@ -15,6 +15,7 @@ class TableExpense extends Component
     {
         $expenses = $user->expenses()
             ->with('date')
+            ->latest()
             ->paginate(10);
 
         return $expenses;
