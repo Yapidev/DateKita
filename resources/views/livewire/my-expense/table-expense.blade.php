@@ -25,10 +25,17 @@
                                 <td>{{ $data->title }}</td>
                                 <td>{{ $data->formatted_amount }}</td>
                                 <td>{{ $data->date->date_time }}</td>
-                                <td class="desc" max-length="20" title="{{ $data->description }}">
-                                    {{ Str::limit($data->description, 20) }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning"
+                                        @click="$dispatch('open-canvas', {description: '{{ $data->description }}', title: '{{ $data->title }}'})">
+                                        <i class="ti ti-eye"></i>
+                                    </button>
+                                </td>
                             </tr>
                         @empty
+                            <tr>
+                                <td colspan="5">Tidak ada data!</td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>
@@ -37,4 +44,28 @@
         </div>
     </div>
     {{-- Table Expense List --}}
+
+    {{-- Description Canvas --}}
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="desc-canvas" aria-labelledby="desc-canvas" wire:ignore.self>
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="desc-canvas-content" style="word-break: break-all;">
+                example description
+            </div>
+        </div>
+    </div>
+    {{-- Description Canvas --}}
+
+    @script
+        <script>
+            $wire.on('open-canvas', data => {
+                $('#offcanvasBottomLabel').text('Deskripsi dari pengeluaran berjudul ' + data.title);
+                $('#desc-canvas-content').text(data.description);
+                $('#desc-canvas').offcanvas('show');
+            });
+        </script>
+    @endscript
 </div>
