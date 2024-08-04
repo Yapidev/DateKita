@@ -62,7 +62,7 @@
     @script
         <script>
             $wire.on('open-canvas', data => {
-                $('#offcanvasBottomLabel').text('Deskripsi dari pengeluaran berjudul ' + data.title);
+                $('#offcanvasBottomLabel').text(data.title);
                 $('#desc-canvas-content').text(data.description);
                 $('#desc-canvas').offcanvas('show');
             });
