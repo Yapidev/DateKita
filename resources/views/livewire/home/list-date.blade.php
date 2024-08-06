@@ -42,7 +42,10 @@
 
         {{-- Infinite Scroll --}}
         @if ($datesCount >= $perPage)
-            <div x-intersect.half="$wire.loadMore()">
+            <div class="d-flex justify-content-center my-2" x-intersect.half="$wire.loadMore()">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         @endif
         {{-- Infinite Scroll --}}
