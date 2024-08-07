@@ -1,7 +1,12 @@
 <div>
-    <div class="note-has-grid row">
+
+    @assets
+        <link rel="stylesheet" href="{{ asset('css/note.css') }}">
+    @endassets
+
+    <div class="note-has-grid note-container">
         @foreach ($notes as $index => $note)
-            <div class="col-md-4 single-note-item all-category {{ $classes[$loop->index % count($classes)] }}"
+            <div class="box single-note-item all-category {{ $classes[$loop->index % count($classes)] }}"
                 wire:key='{{ $note->id }}'>
                 <div class="card card-body">
                     <span class="side-stick"></span>

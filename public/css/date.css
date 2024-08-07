@@ -1,0 +1,29 @@
+.date-container {
+    width: 100%;
+    columns: 3;
+    column-gap: 20px;
+}
+
+.date-container .box {
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
+
+@media (max-width: 1200px) {
+    .date-container {
+        columns: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .date-container {
+        columns: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .date-container {
+        columns: 1;
+    }
+}

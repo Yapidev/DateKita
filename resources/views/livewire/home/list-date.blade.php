@@ -1,7 +1,12 @@
 <div>
-    <div id="note-full-container" class="note-has-grid row">
+
+    @assets
+        <link rel="stylesheet" href="{{ asset('css/date.css') }}">
+    @endassets
+
+    <div id="note-full-container" class="note-has-grid date-container">
         @forelse ($dates as $index => $item)
-            <div class="col-md-4 single-note-item all-category {{ $classes[$loop->index % count($classes)] }}">
+            <div class="box single-note-item all-category {{ $classes[$loop->index % count($classes)] }}">
                 <div class="card card-body">
                     <span class="side-stick"></span>
                     <h6 class="note-title text-truncate w-75 mb-0" data-noteHeading="Book a Ticket for Movie">
@@ -39,17 +44,18 @@
         @empty
             <p>Tidak ada jadwal kencan</p>
         @endforelse
-
-        {{-- Infinite Scroll --}}
-        @if ($datesCount >= $perPage)
-            <div class="d-flex justify-content-center my-2" x-intersect.half="$wire.loadMore()">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        @endif
-        {{-- Infinite Scroll --}}
     </div>
+
+    {{-- Infinite Scroll --}}
+    @if ($datesCount >= $perPage)
+        <div class="d-flex justify-content-center my-2" x-intersect.half="$wire.loadMore()">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    @endif
+    {{-- Infinite Scroll --}}
+
     @script
         <script>
             $wire.on('notify', data => {

@@ -1,0 +1,29 @@
+.note-container {
+    width: 100%;
+    columns: 3;
+    column-gap: 20px;
+}
+
+.note-container .box {
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
+
+@media (max-width: 1200px) {
+    .note-container {
+        columns: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .note-container {
+        columns: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .note-container {
+        columns: 1;
+    }
+}
