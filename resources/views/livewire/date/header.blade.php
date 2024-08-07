@@ -27,8 +27,8 @@
     {{-- Header Content --}}
 
     {{-- Add Expense Modal --}}
-    <div class="modal fade animated pulse" id="addExpenseModal" tabindex="-1" role="dialog" aria-labelledby="addExpenseModalTitle"
-        aria-hidden="true" wire:ignore.self>
+    <div class="modal fade animated pulse" id="addExpenseModal" tabindex="-1" role="dialog"
+        aria-labelledby="addExpenseModalTitle" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0">
                 <div class="modal-header text-bg-primary">
@@ -44,9 +44,8 @@
                                     <div class="note-title">
                                         <label class="form-label">Judul</label>
                                         <input type="text" id="title"
-                                            class="form-control @error('title') is-invalid @enderror"
-                                            minlength="25" placeholder="Isi deskripsi pengeluaran"
-                                            wire:model='title' />
+                                            class="form-control @error('title') is-invalid @enderror" minlength="25"
+                                            placeholder="Isi deskripsi pengeluaran" wire:model='title' />
                                         @error('title')
                                             <div class="invalid-feedback" role="alert">
                                                 {{ $message }}
@@ -70,8 +69,8 @@
                                 <div class="col-md-12 mb-3">
                                     <div class="note-title">
                                         <label class="form-label">Deskripsi</label>
-                                        <textarea type="text" id="description" class="form-control @error('description') is-invalid @enderror" minlength="25" style="height: 100px"
-                                            placeholder="Isi deskripsi pengeluaran" wire:model='description'></textarea>
+                                        <textarea type="text" id="description" class="form-control @error('description') is-invalid @enderror" minlength="25"
+                                            style="height: 100px" placeholder="Isi deskripsi pengeluaran" wire:model='description'></textarea>
                                         @error('description')
                                             <div class="invalid-feedback" role="alert">
                                                 {{ $message }}
@@ -85,7 +84,7 @@
                                         <select id="paid_by"
                                             class="form-control @error('paid_by') is-invalid @enderror" minlength="60"
                                             placeholder="Isi pembayar" rows="3" wire:model='paid_by'>
-                                            <option>Pilih Pembayar</option>
+                                            <option disabled value="">Pilih Pembayar</option>
                                             @forelse ($users as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                             @empty

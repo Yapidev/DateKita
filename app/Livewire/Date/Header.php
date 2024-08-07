@@ -49,6 +49,8 @@ class Header extends Component
     {
         $this->resetModal();
 
+        $this->paid_by = auth()->id();
+
         $this->modal_title = 'Tambah Pengeluaran';
 
         $this->openModal();
