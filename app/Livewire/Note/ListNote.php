@@ -3,7 +3,6 @@
 namespace App\Livewire\Note;
 
 use App\Models\Note;
-use Livewire\Attributes\On;
 use Livewire\Attributes\Reactive;
 use Livewire\Component;
 

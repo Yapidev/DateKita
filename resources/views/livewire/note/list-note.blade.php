@@ -5,7 +5,7 @@
     @endassets
 
     <div class="note-has-grid note-container">
-        @foreach ($notes as $index => $note)
+        @forelse ($notes as $index => $note)
             <div class="box single-note-item all-category {{ $classes[$loop->index % count($classes)] }}"
                 wire:key='{{ $note->id }}'>
                 <div class="card card-body">
@@ -50,7 +50,9 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <x-no-data />
+        @endforelse
     </div>
 
     @script

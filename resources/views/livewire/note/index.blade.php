@@ -3,6 +3,14 @@
     <livewire:note.header @saved="$refresh" />
     {{-- Header --}}
 
+    {{-- Filter --}}
+    <livewire:note.filter wire:model.live="filter" />
+    {{-- Filter --}}
+
+    {{-- Search --}}
+    <livewire:note.search wire:model.live="search" />
+    {{-- Search --}}
+
     {{-- List Note --}}
     <livewire:note.list-note :notes="$notes" @saved="$refresh" />
     {{-- List Note --}}
