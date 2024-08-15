@@ -4,12 +4,17 @@ namespace App\Livewire\Note;
 
 use App\Models\Note;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class Index extends Component
 {
     public int $perPage = 9;
+
+    #[Url('filter')]
     public $filter = 'all';
+    
+    #[Url('search')]
     public $search = '';
 
     public function loadMore()
@@ -62,7 +67,6 @@ class Index extends Component
             'notes' => $notes,
             'notesCount' => $notesCount
         ])
-            ->extends('layouts.app')
-            ->section('content');
+            ->extends('layouts.app');
     }
 }

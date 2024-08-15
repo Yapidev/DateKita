@@ -15,7 +15,7 @@
         <nav class="sidebar-nav scroll-sidebar" data-simplebar>
             <ul id="sidebarnav">
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('home') }}" aria-expanded="false" wire:navigate>
+                    <a class="sidebar-link {{ Route::is('home*') ? 'active' : '' }}" href="{{ route('home') }}" aria-expanded="false" wire:navigate>
                         <span>
                             <i class="ti ti-home"></i>
                         </span>
@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('my-expense') }}" aria-expanded="false" wire:navigate>
+                    <a class="sidebar-link {{ Route::is('my-expense*') ? 'active' : '' }}" href="{{ route('my-expense') }}" aria-expanded="false" wire:navigate>
                         <span>
                             <i class="ti ti-receipt-2"></i>
                         </span>
@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('note') }}" aria-expanded="false" wire:navigate>
+                    <a class="sidebar-link {{ Route::is('note*') ? 'active' : '' }}" href="{{ route('note') }}" aria-expanded="false" wire:navigate>
                         <span>
                             <i class="ti ti-notebook"></i>
                         </span>

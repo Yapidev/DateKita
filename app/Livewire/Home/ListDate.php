@@ -4,12 +4,19 @@ namespace App\Livewire\Home;
 
 use App\Models\Date;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class ListDate extends Component
 {
     public array $classes;
     public int $perPage = 9;
+
+    #[Url('search')]
+    public string $search = '';
+
+    #[Url('filter')]
+    public string $filter = 'latest';
 
     public function mount()
     {
@@ -29,9 +36,24 @@ class ListDate extends Component
     #[On('new-date-updated')]
     public function render()
     {
+        // start query
         $dates = Date::query()
-            ->orderByDesc('date_time')
-            ->take($this->perPage)
+            ->with('ratings');
+
+        // Menambahkan filter
+        if ($this->filter == 'latest') {
+            $dates->orderByDesc('date_time');
+        } elseif ($this->filter == 'oldest') {
+            $dates->orderBy('date_time');
+        }
+
+        // Menambahkan pencarian
+        if ($this->search) {
+            $dates->where('location', 'like', '%' . $this->search . '%');
+        }
+
+        // Get data
+        $dates = $dates->take($this->perPage)
             ->get();
 
         $datesCount = Date::count();

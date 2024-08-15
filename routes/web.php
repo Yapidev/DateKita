@@ -8,9 +8,6 @@ use App\Http\Controllers\{
     ProfileController
 };
 
-// Import Livewire Components
-use App\Livewire\Note\Index;
-
 // Import Facades
 use Illuminate\Support\Facades\{
     Auth,
@@ -32,9 +29,9 @@ Route::get('/', function () {
 
 // Auth Routes
 Route::middleware('auth')->group(function () {
-    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('home', App\Livewire\Home\Index::class)->name('home');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::resource('date', DateController::class)->only('show');
     Route::get('my-expense', [ExpenseController::class, 'index'])->name('my-expense');
-    Route::get('note', Index::class)->name('note');
+    Route::get('note', App\Livewire\Note\Index::class)->name('note');
 });
