@@ -4,6 +4,9 @@
     {{-- Header --}}
 
     <div class="card">
+        <div class="card-header text-bg-primary">
+            <h4 class="mb-0 text-white card-title">Filter dan Pencarian</h4>
+        </div>
         <div class="card-body">
             {{-- Filter --}}
             <livewire:note.filter wire:model.live="filter" />

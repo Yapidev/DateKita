@@ -6,6 +6,9 @@
 
     {{-- Search and Filter --}}
     <div class="card">
+        <div class="card-header text-bg-primary">
+            <h4 class="mb-0 text-white card-title">Filter dan Pencarian</h4>
+        </div>
         <div class="card-body">
             <select class="form-select mb-2" wire:model.live='filter'>
                 <option value="latest">Terbaru</option>

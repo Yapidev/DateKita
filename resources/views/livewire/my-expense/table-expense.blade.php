@@ -24,10 +24,10 @@
                                 <td>{{ $expenses->firstItem() + $loop->index }}.</td>
                                 <td>{{ $data->title }}</td>
                                 <td>{{ $data->formatted_amount }}</td>
-                                <td>{{ $data->date->date_time }}</td>
+                                <td>{{ Carbon\Carbon::parse($data->date_date_time)->format('Y-m-d') }}</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning"
-                                        @click="$dispatch('open-canvas', {description: '{{ $data->description }}', title: '{{ $data->title }}'})">
+                                        @click="$dispatch('open-canvas', {description: '{{ str_replace(["\r", "\n"], ' ', $data->description) }}', title: '{{ $data->title }}'})">
                                         <i class="ti ti-eye"></i>
                                     </button>
                                 </td>
@@ -46,7 +46,8 @@
     {{-- Table Expense List --}}
 
     {{-- Description Canvas --}}
-    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="desc-canvas" aria-labelledby="desc-canvas" wire:ignore.self>
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="desc-canvas" aria-labelledby="desc-canvas"
+        wire:ignore.self>
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasBottomLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

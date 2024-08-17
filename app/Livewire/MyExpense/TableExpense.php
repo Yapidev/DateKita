@@ -14,8 +14,8 @@ class TableExpense extends Component
     public function getExpenses($user)
     {
         $expenses = $user->expenses()
-            ->with('date')
-            ->latest()
+            ->withAggregate('date', 'date_time')
+            ->orderByDesc('date_date_time')
             ->paginate(10);
 
         return $expenses;

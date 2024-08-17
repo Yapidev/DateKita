@@ -40,7 +40,7 @@
                                 <div class="col-md-12 mb-3">
                                     <div class="note-title">
                                         <label class="form-label">Tanggal</label>
-                                        <input type="date" id="date-time"
+                                        <input type="date"
                                             class="form-control @error('date_time') is-invalid @enderror" minlength="25"
                                             placeholder="Isi tanggal" wire:model='date_time' />
                                         @error('date_time')
