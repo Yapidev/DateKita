@@ -48,9 +48,9 @@
     {{-- Description Canvas --}}
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="desc-canvas" aria-labelledby="desc-canvas"
         wire:ignore.self>
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasBottomLabel"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-header text-bg-primary">
+            <h5 class="offcanvas-title text-white" id="offcanvasBottomLabel"></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <div id="desc-canvas-content" style="word-break: break-all;">
