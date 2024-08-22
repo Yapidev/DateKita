@@ -33,7 +33,7 @@
                     </p>
                     <div class="note-content">
                         <p class="note-inner-content">
-                            {{ Str::limit($item->description, 30, '...') }}
+                            {{ $item->description }}
                         </p>
                     </div>
                     <div class="btn-group col-7 col-xl-8">
